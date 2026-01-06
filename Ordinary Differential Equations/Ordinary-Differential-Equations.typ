@@ -57,3 +57,21 @@ An ordinary differential equation is said to be homogeneous if $f(x) = 0$; other
   - $y = g(x)$ is n-times differentiable on $I$
   - Substituting $y = g(x)$ and its derivatives into the differential equation satisfies $forall x in I$
 ]
+
+#definition[Linearly Independent Functions][
+  The functions ${f_i}_1^n$ is said to be linearly independent on an interval $I$ if the equation $sum c_i f_i (x) = 0$ holds for all $x in I$ only when all constants $c_i = 0$. Otherwise, they are said to be linearly dependent on $I$.
+]
+
+#definition[Wronskian][
+  The *Wronskian* of n functions ${f_i}_1^n$ is defined as:
+  #set math.mat(delim: "|")
+  $
+    W(f_1, f_2, dots, f_n) = mat(
+      f_1, f_2, dots, f_n;
+      dv(f_1, x), dv(f_2, x), dots, dv(f_n, x);
+      dots.v, dots.v, dots.down, dots.v;
+      dv(f_1, x, n-1), dv(f_2, x, n-1), dots, dv(f_n, x, n-1)
+    )
+  $
+  If the Wronskian is non-zero at some point in the interval $I$, then the functions are linearly independent on $I$.
+]
