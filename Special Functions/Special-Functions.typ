@@ -78,3 +78,36 @@ Some special values of the function are:
       therefore x & = ln W(e^2) \
   $
 ]
+
+== Derivative of the Lambert W Function
+
+To find the derivative of the Lambert W function, we start with the defining equation:
+$
+  W(x) e^(W(x)) & = x \
+  => W'(x) e^(W(x)) + W(x) e^(W(x)) W'(x) & = 1 quad ("Product Rule") \
+  therefore W'(x) &= 1/(x + e^(W (x))) = (W(x))/(x (1 + W(x))) \
+$
+
+In general, the nth derivative of the Lambert W function is given by the Faà di Bruno's formula:
+$
+  W^(n) (x) = (-1)^(n - 1) / x^n sum_(k = 1)^n binom(n, k) (k^(n - 1) W^k (x))/(1 + W(x))^(n + k - 1)
+$
+The above formula is kinda just a flex, and we'll just use the quotient rule to find the second or third derivative when needed.
+
+== Integral of the Lambert W Function
+
+There are two approaches, one is sir's method and the other one is pretty good to look at.
+
+#theorem[Integral of the Inverse][
+  Consider an integrable and invertible function $f$ such that, $ integral f(x) dd(x) = F(x) $ and $f^(-1)$ is its inverse. Then,
+  $
+    integral f^(-1) (x) dd(x) = x f^(-1) (x) - F(f^(-1) (x)) + c
+  $
+]
+
+By definition, we have $W(x) = f^(-1) (x)$ where $f(x) = x e^x$ and $F(x) = integral x e^x dd(x) = (x - 1) e^x + c$. Thus, simply substituting in the above theorem gives us,
+$
+  integral W(x) dd(x) = x W(x) - (W(x) - 1) e^(W(x)) + c = x W(x) - x + x/W(x)
+$
+
+Using all the above results and literally just looking at the problems, we can solve any shit ass question on the Lambert W Function.
