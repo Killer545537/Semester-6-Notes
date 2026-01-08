@@ -90,5 +90,33 @@ There are three types of solutions to differential equations:
       dv(f_1, x, n-1), dv(f_2, x, n-1), dots, dv(f_n, x, n-1)
     )
   $
-  If the Wronskian is non-zero at some point in the interval $I$, then the functions are linearly independent on $I$.
+  If the Wronskian is non-zero at some point in the interval $I$, then the functions are linearly independent on $I$.#footnote[However, if the Wronskian is zero at some point, it does not necessarily imply that the functions are linearly dependent.]
+]
+
+#theorem[Existence and Uniqueness Theorem for $n^"th"$ Order ODE][
+  Let $a_i(x)$ be continuous functions on an interval $I$ containing the point $x = x_0$ with $a_0(x) != 0$. Then, for any given initial conditions:
+  $
+    y^(i) (x) = c_(i + 1) quad forall i = 0, 1, dots, n - 1
+  $
+  there exists a unique solution $y = g(x)$ of the n-th order ODE on the interval $I$ that satisfies these initial conditions.
+]
+#proof[Linear Independence of Solutions of Homogeneous Linear ODE][
+  If ${Phi_i}_1^n$ are n solutions of the homogeneous linear ODE:
+  $
+    sum a_i (x) dv(y, x, i) + a_0(x) y = 0
+  $
+  on an interval $I$.
+  Say $Phi_i^(i - 1)(x_0) = 1$ and the other derivatives be $0$ for $i = 1, 2, dots, n$ at some point $x_0 in I$. Now, looking the Wronskian at $x = x_0$, we see an identity matrix, which has a non-zero determinant. Thus, by the property of Wronskian, the solutions ${Phi_i}_1^n$ are linearly independent on $I$.
+]
+
+#proof[Uniqueness of a Solution][
+  Consider n solutions ${y_i}_1^n$ of the n-th order ODE satisfying the given initial conditions. Let us form a linear combination of these solutions:
+  $
+    y = sum c_i Phi_i
+  $
+  Consider another solution $y'$ of the same ODE satisfying the same initial conditions. Now, the difference $Y = y - y'$ is also a solution of the homogeneous part of the ODE. The initial conditions for $Y$ are:
+  $
+    Y^(i) (x_0) = 0 quad forall i = 0, 1, dots, n - 1
+  $
+  Since ${Phi_i}_1^n$ are linearly independent, the only solution to this system of equations is $c_i = 0$ for all $i$. Thus, $Y = 0$, which implies $y = y'$. Hence, the solution is unique.
 ]
