@@ -7,7 +7,7 @@
 
 #show: ilm.with(
   title: [Ordinary Differential Equations],
-  author: "Sarika Goyal",
+  author: "Sarika Goyal 💝",
 )
 #set math.equation(numbering: none)
 
@@ -57,6 +57,23 @@ An ordinary differential equation is said to be homogeneous if $f(x) = 0$; other
   - $y = g(x)$ is n-times differentiable on $I$
   - Substituting $y = g(x)$ and its derivatives into the differential equation satisfies $forall x in I$
 ]
+
+The set of all solutions of an n-th order differential equation contains n arbitrary constants.
+
+There are three types of solutions to differential equations:
+#columns(2)[
+  #definition[General Solution][
+    The *general solution* of an n-th order differential equation is the solution that contains n arbitrary constants.
+  ]
+  #colbreak()
+  #definition[Singular Solution][
+    A *singular solution* of a differential equation is a solution that cannot be obtained from the general solution by any choice of the arbitrary constants.
+  ]
+]
+#definition[Particular Solution][
+  A *particular solution* of a differential equation is obtained by assigning specific values to the arbitrary constants in the general solution.
+]
+#colbreak()
 
 #definition[Linearly Independent Functions][
   The functions ${f_i}_1^n$ is said to be linearly independent on an interval $I$ if the equation $sum c_i f_i (x) = 0$ holds for all $x in I$ only when all constants $c_i = 0$. Otherwise, they are said to be linearly dependent on $I$.
