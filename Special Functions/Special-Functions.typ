@@ -111,3 +111,66 @@ $
 $
 
 Using all the above results and literally just looking at the problems, we can solve any shit ass question on the Lambert W Function.
+
+= Error Functions
+
+== Definition
+
+The *Error Function* (_Gauss Error Function_), is defined as, $ erf(x) = 2/sqrt(pi) integral_0^x e^(-t^2) dd(t) $
+Since the integrand $e^(-t^2)$ has no elementary antiderivative, $erf$ itself is not an elementary function.
+
+== Complementary Error Function
+
+The complementary error function is pretty similar with, $ "erfc"(x) = 1- erf(x) $
+
+== Different Forms of Error and Complementary Error Functions
+
+$erf(x)$ is the probability that $Y tilde cal(N)(0, sqrt(1/2))$ lies in the range $[-x, x]$. Thus, the error function is also called the _probability integral_.
+
+=== Incomplete Gamma Function
+
+We can represent the error function in terms of the _lower incomplete gamma function_ which is, $ gamma(s, x) = integral_0^x t^(s - 1) e^(-t) dd(t) $ by making the obvious substitution of $u = t^2$ in the error function. In the end we get,
+$
+  erf(x) & = gamma(1/2, x^2)/Gamma(1/2) quad (Gamma(1/2) = sqrt(pi)) \
+  "erfc"(x) & = Gamma(1/2, x^2)/Gamma(1/2) quad (Gamma(s, x) = integral_x^infinity t^(s - 1) e^(-t) dd(t))\
+$
+
+=== Maclaurin Series
+
+The Maclaurin series expansion of the error function is given by,
+$
+  erf(x) & = integral_0^x sum_(n=0)^infinity ((-1)^n t^(2n))/n! dd(t) \
+         & = sum_(n=0)^infinity (-1)^n x^(2n + 1)/((2n + 1) n!) \
+$
+
+== Properties of Error Functions
+
+$
+         erf(0) & = 0 \
+  erf(infinity) & = 1 \
+        erf(-x) & = -erf(x) \
+$
+
+== Derivative of the Error Function
+
+The derivative of the error function is given by,
+$
+             erf(x) & = 2/sqrt(pi) integral_0^x e^(-t^2) dd(t) \
+  therefore erf'(x) & = 2/sqrt(pi) e^(-x^2) quad ("Using Leibniz's Rule") \
+$
+
+#theorem[Leibniz's Rule][
+  If $f(x, t)$ is continuous in both variables and has a continuous partial derivative with respect to $x$ in the region $a <= t <= b$, then,
+  $
+    dv(, x) integral_(a(x))^(b(x)) f(x, t) dd(t) = f(x, b(x)) b'(x) - f(x, a(x)) a'(x) + integral_(a(x))^(b(x)) pdv(, x) f(x, t) dd(t)
+  $
+]
+
+== Integral of the Error Function
+
+To find the integral of the error function, we use integration by parts,
+$
+            I & = integral erf(x) dd(x) \
+              & = x erf(x) - integral x erf'(x) dd(x) \
+  therefore I & = x erf(x) + e^(-x^2)/sqrt(pi) + C
+$
