@@ -174,3 +174,34 @@ $
               & = x erf(x) - integral x erf'(x) dd(x) \
   therefore I & = x erf(x) + e^(-x^2)/sqrt(pi) + C
 $
+
+#example[Laplace Transform of the Error Function][
+  Find $ L{erf(sqrt(t))} $
+]
+#solution[
+  The Laplace Transform is given by,
+  $
+    L{erf(sqrt(t))} &= integral_0^infinity e^(-s t) erf(sqrt(t)) dd(t) \
+    &= integral_0^infinity integral_0^sqrt(t) 2/sqrt(pi) e^(-s t - u^2) dd(u) dd(t) \
+    &= integral_0^infinity integral_(u^2)^infinity 2/sqrt(pi) e^(-s t - u^2) dd(t) dd(u) quad ("Changing the order of the integral") \
+    therefore L{erf(sqrt(t))} &= 1/(s sqrt(s+1)) \
+  $
+]
+
+= Combinatorial Special Functions
+
+== Stirling Numbers of the First Kind
+
+#definition[Falling Factorial][
+  The falling factorial, denoted by $x^(underline(n))$, is defined as,
+  $
+    x^(underline(n)) = x (x - 1) (x - 2) ... (x - n + 1) quad (n in bb(N))
+  $
+]
+
+#definition[Rising Factorial][
+  The rising factorial, denoted by $x^(overline(n))$, is defined as,
+  $
+    x^(overline(n)) = x (x + 1) (x + 2) ... (x + n - 1) quad (n in bb(N))
+  $
+]
