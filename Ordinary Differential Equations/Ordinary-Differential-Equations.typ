@@ -120,3 +120,51 @@ There are three types of solutions to differential equations:
   $
   Since ${Phi_i}_1^n$ are linearly independent, the only solution to this system of equations is $c_i = 0$ for all $i$. Thus, $Y = 0$, which implies $y = y'$. Hence, the solution is unique.
 ]
+
+#theorem[
+  There exist two linearly independent solutions $y_1$ and $y_2$ of the equation $ a_0 y'' + a_1 y' + a_2 y = 0 $ such that every solution $y$ can be expressed as $y = c_1y_1 + c_2 y_2$ where $c_1$ and $c_2$ are arbitrary constants.
+]
+
+#theorem[
+  Two solutions $y_1$ and $y_2$ of the equation $ a_0 y'' + a_1 y' + a_2 y = 0 $ are lineary dependent iff their wronskian is identically zero in $[a, b]$.
+]
+#proof[
+  First we prove the "if" part. Suppose $y_1$ and $y_2$ are linearly dependent. Thus, there exist constants $c_1$ and $c_2$, not both zero,
+  $
+           c_1 y_1 + c_2 y_2 & = 0 quad forall x in [a, b] \
+    => c_1 y_1 ' + c_2 y_2 ' & = 0
+  $
+  Since the above equations have a non-trivial solution, the determinant of the coefficients must be zero. Thus, $ mat(delim: "|", y_1, y_2; y_1 ', y_2 ') = 0 $
+
+  Now we prove the "only if" part. Suppose the wronskian is identically zero in $[a, b]$. Thus, at some point $x_0 in [a, b]$, we have,
+  $ mat(delim: "|", y_1(x_0), y_2(x_0); y_1 '(x_0), y_2 '(x_0)) = 0 $
+  Thus, there exist constants $c_1$ and $c_2$, not both zero,
+  $
+        c_1 y_1 (x_0) + c_2 y_2 (x_0) & = 0 \
+    c_1 y_1 ' (x_0) + c_2 y_2 ' (x_0) & = 0
+  $
+  Let $Y = c_1 y_1 + c_2 y_2$. Then, $Y$ is a solution of the equation $a_0 y'' + a_1 y' + a_2 y = 0$ satisfying the initial conditions $Y(x_0) = 0$ and $Y'(x_0) = 0$.\
+  By the existence and uniqueness theorem, we have $Y = 0$ for all $x in [a, b]$. Thus, $y_1$ and $y_2$ are linearly dependent.
+]
+
+#corollary[
+  Two solutions $y_1$ and $y_2$ of the equation $ a_0 y'' + a_1 y' + a_2 y = 0 $ are lineary independent iff their wronskian is not identically zero at some point in $[a, b]$.
+]
+
+#theorem[
+  The wronskian of two solutions of the equation $ a_0 y'' + a_1 y' + a_2 y = 0 $ is either identically zero or never zero in the interval $[a, b]$.
+]
+#proof[
+  Let $y_1$ and $y_2$ be two solutions of the equation $a_0 y'' + a_1 y' + a_2 y = 0$.\
+  Let their wronskian be $W = mat(delim: "|", y_1, y_2; y_1 ', y_2 ')$.
+
+  $
+                          W' & = y_1 y_2 '' - y_1 '' y_2 ' \
+                             & = -a_1/a_0 (y_1 y_2 ' - y_1 ' y_2) \
+                          W' & = -a_1/a_0 W \
+    therefore a_0 W' + a_1 W & = 0
+  $
+  Say $W$ is a solution of the above equation. We now have two cases to consider:
+  - *Case 1:* If $W(x) != 0 med forall x in [a, b]$, then we are done
+  - *Case 2:* If there exists some point $x_0 in [a, b]$ such that $W(x_0) = 0 => W'(x_0) = 0$, then by the existence and uniqueness theorem, we have $W = 0 med forall x in [a, b]$
+]
