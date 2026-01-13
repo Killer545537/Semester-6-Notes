@@ -205,3 +205,45 @@ $
     x^(overline(n)) = x (x + 1) (x + 2) ... (x + n - 1) quad (n in bb(N))
   $
 ]
+
+#let usn(n, k) = {
+  set math.mat(delim: "[")
+  $mat(#n ; #k)$
+}
+
+#definition[Signed Stirling Number of the First Kind][
+  The coefficient of $x^k$ in the expansion of the falling factorial $x^(underline(n))$ is called the _Signed Stirling Number of the First Kind_ and is denoted by $s(n, k)$.
+  $ x^(underline(n)) = sum_(k = 1)^n s(n, k) x^k $
+]
+
+#definition[Unsigned Stirling Number of the First Kind][
+  The coefficient of $x^k$ in the expansion of the rising factorial $x^(overline(n))$ is called the _Unsigned Stirling Number of the First Kind_ and is denoted by $usn(n, k)$.
+
+  $ x^(overline(n)) = sum_(k = 1)^n usn(n, k) x^k $
+]
+
+It is pretty clear#footnote[Kinda in the name too tho] that, $ usn(n, k) = (-1)^(n - k) s(n, k) $
+
+#example[Recurrence Relation][
+  Prove that
+  $
+    s(n + 1, k) & = s(n, k - 1) - n s(n, k) \
+      usn(n, k) & = usn(n - 1, k - 1) + (n - 1) usn(n - 1, k) \
+  $
+]
+#solution[
+  Compare the coefficients of $x^k$ on both sides of the equations.
+]
+
+#example[Generating Function][
+  Prove that,
+  $
+    sum_(n = k)^infinity s(n, k) (x^n)/(n!) & = 1/k! ln^k (1 + x) \
+    sum_(n = k)^infinity usn(n, k) (x^n)/(n!) & = 1/k! ln^k (1/(1-t)) quad abs(t) < 1 \
+  $
+]
+#solution[
+  Use the bionomial expansion of $(1+t)^x$ for the first one and $(1-t)^(-x)$ for the second one.
+]
+
+The above problems are trivial applications of the definitions and properties of the Stirling Numbers of the First Kind.
