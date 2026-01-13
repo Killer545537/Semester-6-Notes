@@ -168,3 +168,34 @@ There are three types of solutions to differential equations:
   - *Case 1:* If $W(x) != 0 med forall x in [a, b]$, then we are done
   - *Case 2:* If there exists some point $x_0 in [a, b]$ such that $W(x_0) = 0 => W'(x_0) = 0$, then by the existence and uniqueness theorem, we have $W = 0 med forall x in [a, b]$
 ]
+
+#example[
+  Compute the wronskian of $x^2$ and $x^2 ln x$. Can these be linearly independent solutions of a second order linear ODE? If so, find the ODE.
+]
+#show figure.where(kind: "thmbox"): set block(breakable: true)
+#solution()[
+  The wronskian is given by:
+  $
+    mat(
+      delim: "|",
+      x^2, x^2 ln x;
+      2x, 2x ln x + x
+    ) = x^3
+  $
+  Since the wronskian is not identically zero (in $bb(R)$), these functions can be linearly independent solutions of a second order linear ODE.\
+  To find the ODE, which I am not a bitch so I won't do, can be found using, $ y = c_1 x^2 + c_2 x^2 ln x $ and then finding $c_1$ and $c_2$.
+]
+
+#lemma[Abel's Formula][
+  Consider the differential equation $y'' + P y' + Q y = 0 med forall x in I$ where $P$ and $Q$ are continuous functions defined on $I$. Let $y_1$ and $y_2$ be linearly independent solutions of the above equation, then,
+  $ W(y_1, y_2)(x) = exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0) $
+]
+#proof[Abel's Formula][
+  $
+    W(y_1, y_2) &= y_1 y_2 ' - y_1 ' y_2 \
+    => W' &= y_1 y_2 '' - y_1 '' y_2 \
+    &= -P W quad ("Putting the solutions in the equation") \
+    => integral_(x_0)^x W'/W dd(x) &= integral_(x_0)^x -P dd(x) \
+    therefore W(y_1, y_2)(x) &= exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
+  $
+]
