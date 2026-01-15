@@ -247,3 +247,59 @@ It is pretty clear#footnote[Kinda in the name too tho] that, $ usn(n, k) = (-1)^
 ]
 
 The above problems are trivial applications of the definitions and properties of the Stirling Numbers of the First Kind.
+
+== Stirling Numbers of the Second Kind
+
+#let snsk(n, k) = {
+  set math.mat(delim: "{")
+  $mat(#n ; #k)$
+}
+#definition[Stirling Numbers of the Second Kind][
+  It is the number of ways to partition a set of n objects into k non-empty subsets. It is denoted by $snsk(n, k)$
+  $ x^n = sum_(k = 0)^n snsk(n, k) x^underline(k) $
+]
+
+Here,
+$
+  snsk(0, 0) & = 1 \
+  snsk(n, 0) & = 0 quad (n > 0) \
+  snsk(0, n) & = 0 quad (n > 0)
+$
+
+#example[Generating Function][
+  Prove that,
+  $ sum_(n = k)^infinity snsk(n, k) = (e^t - 1)^k / k! $
+]
+#solution[
+  Use the binomial expansion of $(e^t - 1)^x$.
+]
+
+#example[Recurrence Relation][
+  Prove that,
+  $ snsk(n + 1, k) = k snsk(n, k) + snsk(n, k - 1) quad (n > k > 0) $
+]
+
+== Touchard Polynomials
+
+#definition[Touchard Polynomials][
+  If $X$ is a random variable with a *Poisson Distribution* with expected value $lambda$, then its $n^"th"$ moment is $E(X^n) = T_n(lambda)$,
+  $
+    T_n (x) & = e^(-x) sum_(k = 0)^infinity (x^k k^n)/k! \
+            & = sum_(k = 0)^n snsk(n, k) x^k
+  $
+]
+The first few Touchard polynomials are,
+$
+  T_1 (x) & = x \
+  T_2 (x) & = x^2 + x \
+  T_3 (x) & = x^3 + 3x^2 + 7 \
+  T_4 (x) & = x^4 + 6x^3 + 7x^2 + x
+$
+
+#example[Generating Function][
+  $T_n$ is the coefficient of $t^n / n!$ in the expansion of, $exp(x(e^t - 1))$,
+  $ sum_(n = 0)^k T_n (x) t^n/n! = exp(x(e^t - 1)) $
+]
+#solution[
+  Use the definition of Touchard polynomials on the left.
+]
