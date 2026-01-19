@@ -298,8 +298,38 @@ $
 
 #example[Generating Function][
   $T_n$ is the coefficient of $t^n / n!$ in the expansion of, $exp(x(e^t - 1))$,
-  $ sum_(n = 0)^k T_n (x) t^n/n! = exp(x(e^t - 1)) $
+  $ sum_(n = 0)^infinity T_n (x) t^n/n! = exp(x(e^t - 1)) $
 ]
 #solution[
   Use the definition of Touchard polynomials on the left.
 ]
+
+#example[Binomial Type Relation][
+  $ T_n (x + y) = sum_(k = 0)^n binom(n, k) T_k (x) T_(n-k) (y) $
+]
+#solution[
+  Just use the above generating function. And for the product of summations, use the *Cauchy Product*.
+]
+
+#example[Recurrence Relation][
+  $
+    T_n (x) = x sum_(k = 1)^n binom(n - 1, k - 1) T_(n - k) (x) quad n >= 1
+  $
+]
+#solution[
+  Assume,
+  $ F(t) = sum_(n = 0)^infinity T_n (x) t^n/n! = exp(x(e^t - 1)) $
+  Differentiating and equating, we get the desired result.
+]
+
+#example[Rodrigues Formula][
+  $ T_n (e^x) = e^(-e^(-x)) dv(, x, n) e^(-e^(x)) $
+]
+#solution[
+  Use the generating function and interpret the right hand side as a Taylor Series.
+]
+
+= Bessel's Differential Equation
+
+$ x^2 dv(y, x, 2) + x dv(y, x) + (x^2 - n^2)y = 0 quad n in bb(R) $
+is called Bessel's Differential Equation.
