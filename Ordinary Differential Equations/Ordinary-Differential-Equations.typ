@@ -11,7 +11,9 @@
 )
 #set math.equation(numbering: none)
 
-= Introduction
+= Ordinary Differential Equations
+
+== Definitions
 
 #definition[Differential Equation][
   An equation involving derivatives of one or more dependent variables with respect to one or more independent variables is called a *differential equation*.
@@ -42,6 +44,8 @@ $
   f(x, y, dv(y, x), dv(y, x, 2), dots, dv(y, x, n)) = 0
 $
 where $y$ is the dependent variable, $x$ is the independent variable, and $dv(y, x, k)$ represents the $k^"th"$ derivative of $y$ with respect to $x$.
+
+== Solutions of an ODE
 
 A general form of a linear ordinary differential equation of order n is given by:
 $
@@ -74,6 +78,8 @@ There are three types of solutions to differential equations:
   A *particular solution* of a differential equation is obtained by assigning specific values to the arbitrary constants in the general solution.
 ]
 #colbreak()
+
+== Linear Independence of Solutions
 
 #definition[Linearly Independent Functions][
   The functions ${f_i}_1^n$ is said to be linearly independent on an interval $I$ if the equation $sum c_i f_i (x) = 0$ holds for all $x in I$ only when all constants $c_i = 0$. Otherwise, they are said to be linearly dependent on $I$.
@@ -199,3 +205,32 @@ There are three types of solutions to differential equations:
     therefore W(y_1, y_2)(x) &= exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
   $
 ]
+
+= Solution of First Order Ordinary Differential Equations
+
+We already know that the solution of the general first order differential equation of the type, $ y' + P y = Q $ is given by,
+$
+  y * "IF" = integral Q * "IF" dd(x) quad ("where" "IF" = exp(integral P dd(x)))
+$
+
+== Exact Differential Equation
+
+#definition[Exact Equation][
+  An expression $M dd(x) + N dd(y) = 0$, where $M$ and $N$  are functions of $x$ and $y$, is called an exact differential equation if there exists a function $F$ such that,
+  $
+    M dd(x) + N dd(y) = dd(F)
+  $#footnote[$dd(F)$ rrepresents the total differential of $F$ given by $dd(F) = pdv(F, x) dd(x) + pdv(F, y) dd(y)$]
+]
+
+#definition[Exact Differential Equation][
+  Consider the differential equation, $ M dd(x) + N dd(y) = 0 $ where $M$ and $N$ are continuous functions and have continuous partial derivatives for all points $(x, y)$ in $bb(R)^2$. Then the necessary and sufficient condition for it to be exact is,
+  $ pdv(M, y) = pdv(N, x) $
+]
+
+=== Solution
+
+The solution is somewhat clear from the definition of an exact differential equation,
+$F = c$
+where $c$ is any constant and $F$ is such that $pdv(F, x) = M$ and $pdv(F, y) = N$.
+
+Finding, $F$ on the other hand is not so trivial but has pretty easy steps which are trivial.
