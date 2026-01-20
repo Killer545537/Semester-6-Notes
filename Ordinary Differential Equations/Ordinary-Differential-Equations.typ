@@ -234,3 +234,11 @@ $F = c$
 where $c$ is any constant and $F$ is such that $pdv(F, x) = M$ and $pdv(F, y) = N$.
 
 Finding, $F$ on the other hand is not so trivial but has pretty easy steps which are trivial.
+
+=== Inexact Differential Equations
+
+Say $M dd(x) + N dd(y) = 0$ is not exact, then, we can mutiply by some function say $mu$ such that,
+$ mu M dd(x) + mu N dd(y) = 0 $
+is exact. Then $mu$ is said to be an integrating factor.
+
+We can look at cases where $mu$ can be figured out if it is a function of $x$ or $y$ but that's for uncool people.
