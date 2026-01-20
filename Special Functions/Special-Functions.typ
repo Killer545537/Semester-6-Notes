@@ -333,3 +333,47 @@ $
 
 $ x^2 dv(y, x, 2) + x dv(y, x) + (x^2 - n^2)y = 0 quad n in bb(R) $
 is called Bessel's Differential Equation.
+
+== Series Solution of Bessel's Differential Equation
+
+We find the solution as ascending powers of $x$. Say the solution is of the form, $ y = sum_(k = 0)^infinity a_k x^(k + m) quad a_0 != 0 $
+
+Putting it in the differential equation and adjusting the indices we get, $ sum_(k = 0)^infinity {a_k [(k + m)^2 - n^2] + a_(k - 2)} x^(k + m) = 0 $
+
+Equating the coefficient of the lowest power of $x$, i.e. $x^m$, we get, $m = plus.minus n$. Similarly, looking at $x^(m + 1)$, we get $a_1 = 0$.
+
+Now, for the general recurrence, we equate the coefficient of $x^(k + m)$ to 0 to get, $ a_k = (-a_(k - 2)) / ((k + m)^2 - n^2) $
+For the first case where $m = n$, we see, all the odd terms vanish and the remaining general terms can be given by, $ a_(2 r) = a_0 ((-1)^r n!)/(2^(2 r) r! (n+r)!) $
+
+We take the standard normalisation as $a_0 = 1/2^n n!$, plugging it in, we get the series solution becomes,
+$ J_n (x) = sum_(k = 0)^infinity (-1)^k / (k! (n+k)!) (x/2)^(n + 2k) $
+This is known as Bessel Function of the First Kind of Order $n$.#footnote[In class, $J_n$ was written using the Gamma Function but I mean, I am not that old yet.]
+
+#example[
+  Show that $J_n$ is even when $n$ is even and odd when $n$ is odd.
+]
+
+#example[
+  Show that,
+  $ lim_(x -> 0) (J_n (x))/x^n = 1/(2^n n!) $
+]
+#solution[
+  This is trivial and simply the first term after dividing by $x^n$.
+]
+
+#example[Generating Function][
+  Show that,
+  $ e^(x/2 (t - 1/t)) = sum_(n = -infinity)^infinity J_n (x) t^n $
+]
+#solution[
+  This is kinda not that trivial, so...
+
+  $
+    e^(x/2 (t - 1/t)) & = sum_(k = 0)^infinity 1/k! (x/2)^k (t - 1/t)^k \
+    &= sum_(k = 0)^infinity 1/k! (x/2)^k sum_(r = 0)^k binom(k, r) (-1)^(k-r) t^(2r - k)
+  $
+  Now, for a term to contribute to $t^n$, $2r - k = n => r = (k + n)/2 => k + n "must be even"$. From the limits, $ r in [0, k] => 2r - k in [ -k, k ] => -k <= n <= k => k >= |n| $ Using these facts, we can say that the general term for $k$ is $k = n + 2m$ where $m = 0, 1, dots.h$. Thus, the coefficient of $t^n$ is,
+  $ sum_(m = 0)^infinity (-1)^m / (m! (n+m)!) (x/2)^(n + 2m) = J_n (x) $
+  Thus, for every $n in bb(Z)$,
+  $ e^(x/2 (t - 1/t)) = sum_(n = -infinity)^infinity J_n (x) t^n $
+]
