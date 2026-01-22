@@ -377,3 +377,35 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
   Thus, for every $n in bb(Z)$,
   $ e^(x/2 (t - 1/t)) = sum_(n = -infinity)^infinity J_n (x) t^n $
 ]
+
+#example[Derivative][
+  Show that
+  $
+       dv(, x) [x^n J_n (x)] & = x^n J_(n-1) (x) \
+    dv(, x) [x^(-n) J_n (x)] & = -x^(-n) J_(n+1) (x) \
+  $
+]
+#solution[
+  Just differentiate the series.
+]
+
+#example[Recurrence Relations][
+  Show that,
+  $
+    J_n ' (x) + n/x J_n (x) & = J_(n-1) (x) \
+    J_n ' (x) - n/x J_n (x) & = -J_(n+1) (x) \
+  $
+  From the above relations, deduce that,
+  $
+    2 n/x J_n (x) & = J_(n-1) (x) + J_(n+1) (x) \
+      2 J_n ' (x) & = J_(n-1) (x) - J_(n+1) (x) \
+  $
+]
+#solution[
+  Just use the previous example's results.
+]
+
+#example[Special Value][
+  Show that,
+  $ J_(1/2) (x) = sqrt(2/(pi x)) sin x $
+]

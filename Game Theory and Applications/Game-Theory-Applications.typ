@@ -33,7 +33,7 @@ Game Theory has a wide range of applications across various fields, including:
 - *Social Sciences*: Examining social norms, cooperation, and conflict resolution
 
 #definition[Game][
-  A game is a formal model of a situation involving multiple decision-makers (players) who make choices (strategies) to achieve certain outcomes (payoffs). Formally, it can be defined as a tuple $(N, S_i, u_i)$ where:
+  A game#footnote[We will generally refer to strategic-form games only] is a formal model of a situation involving multiple decision-makers (players) who make choices (strategies) to achieve certain outcomes (payoffs). Formally, it can be defined as a tuple $(N, S_i, u_i)$ where:
   - $N = {1, 2, dots.h, n}$ is a finite set of _players_
   - $S_i$ is the nonempty set of _strategies_ available to player $i$
   - $u_i: S_1 times S_2 times dots.h times S_n -> bb(R)$ is the _payoff/utility_ function of player $i$
@@ -90,7 +90,9 @@ For each player $i$, the strategy set $S_i$ contains all possible strategies ava
   $
 ]
 
-Let us consider a simple example of a strategic game known as the Prisoner's Dilemma. Two players, Alice and Bob, can either "Cooperate" or "Defect". The payoffs are as follows:
+We will assume that all players are rational and a rational player will not choose a dominated strategy. The fact that all players are rational is common knowledge.
+
+Let us consider a simple example of a strategic game known as the Prisoner's Dilemma. Two players, Alice and Bob, can either "Cooperate" or "Defect". The payoffs are as follows#footnote[I won't explain the details of the game here, but you can see that both players have a dominant strategy to defect, leading to a suboptimal outcome for both]:
 #align(center)[
   #table(
     align: center,
@@ -104,4 +106,16 @@ Let us consider a simple example of a strategic game known as the Prisoner's Dil
     [Defect], [$(-4, 0)$], [$( -1, -1)$],
   )
 ]
-I won't explain the details of the game here, but you can see that both players have a dominant strategy to defect, leading to a suboptimal outcome for both.
+Games in strategic form are also called matrix games because they can be described in matrices. The matrices are $n$ dimensional where $n$ is the number of players#footnote[When $n = 2$, these games are called bimatrix games].
+
+#definition[Weakly Dominated Strategy][
+  A strategy $s_i$ of player $i$ is called weakly dominated if there exists another strategy $s_i^*$ of player $i$ satisfying,
+  $
+      u_i (s_i^*, s_(-i)) & >= u_i(s_i, s_(-i)) med forall s_(-i) in S_(-i) \
+    u_i (s_i^*, s_(-i)^*) & >= u_i(s_i, s_(-i)^*) exists s_(-i)^* in S_(-i)
+  $
+]
+
+#definition[Rational][
+  A strategy vector $s in S$ is termed rational if it is the unique result of a process of iterative elimination of weakly dominated strategies.
+]
