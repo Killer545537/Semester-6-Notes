@@ -241,4 +241,10 @@ Say $M dd(x) + N dd(y) = 0$ is not exact, then, we can mutiply by some function 
 $ mu M dd(x) + mu N dd(y) = 0 $
 is exact. Then $mu$ is said to be an integrating factor.
 
-We can look at cases where $mu$ can be figured out if it is a function of $x$ or $y$ but that's for uncool people.
+We can look at cases where $mu$ can be figured out if it is a function of $x$ or $y$ but that's for uncool people. But here it is anyway.
+
+- If $1/ N (pdv(M, y) - pdv(N, x)) = f(x)$, then, $mu = exp(integral f(x) dd(x))$
+- If $1/ M (pdv(N, x) - pdv(M, y)) = g(y)$, then, $mu = exp(integral g(y) dd(y))$
+- If $M$ and $N$ are homogeneous functions of same degree, then, $mu = 1/ (M x + N y)$
+- If $M = f_1 (x y) y$ and $N = f_2 (x y) x$, and $M x - N y != 0$, then $mu = 1/ (M x - N y)$
+- If $M$ and $N$ are polynomials, then $mu = x^alpha y^beta$
