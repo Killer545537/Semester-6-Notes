@@ -268,7 +268,7 @@ $
 
 #example[Generating Function][
   Prove that,
-  $ sum_(n = k)^infinity snsk(n, k) = (e^t - 1)^k / k! $
+  $ sum_(n = k)^infinity snsk(n, k) t^n/n! = (e^t - 1)^k / k! $
 ]
 #solution[
   Use the binomial expansion of $(e^t - 1)^x$.
@@ -407,5 +407,50 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
 
 #example[Special Value][
   Show that,
-  $ J_(1/2) (x) = sqrt(2/(pi x)) sin x $
+  $
+     J_(1/2) (x) & = sqrt(2/(pi x)) sin x \
+    J_(-1/2) (x) & = sqrt(2/(pi x)) cos x \
+  $
+]
+
+#example[Equations Reducing to Bessel's Equation][
+  Show that,
+  $
+    x^2 dv(y, x, 2) + x dv(y, x) + (k^2 x^2 - n^2) y & = 0 \
+  $
+  has the solution $c_1 J_n (k x) + c_2 J_(-n) (k x)$.
+]
+
+#example[Orthogonality][
+  Show that,
+  $
+    integral_0^1 x J_n (alpha x) J_n (beta x) dd(x) = cases(
+      0 "if" alpha != beta,
+      1/2 [J_(n+1) (alpha)]^2 "if" alpha = beta,
+    ) \
+  $
+  where $alpha$ and $beta$ are the roots of $J_n (x) = 0$.
+]
+#solution[
+  Consider,
+  $
+    x^2 dv(y, x, 2) + x dv(y, x) + (alpha^2 x^2 - n^2)y & = 0 \
+     x^2 dv(z, x, 2) + x dv(z, x) + (beta^2 x^2 - n^2)y & = 0 \
+  $
+  with solutions $y = J_n (alpha x)$ and $z = J_n (beta x)$. Multiplying the first equation by $z / x$ and the second by $y/x$ and subtracting, we get,
+  $
+    x [z dv(y, x, 2) - y dv(z, x, 2)] + (z dv(y, x) - y dv(z, x)) + (alpha^2 - beta^2) x y z &= 0 \
+    => dv(, x) [x (z dv(y, x) - y dv(z, x))] + (alpha^2 - beta^2) x y z & = 0
+  $
+  Now, we can integrate and simplyfy to get the desired result.
+]
+
+#example[Another Recurrence][
+  Show that,
+  $ 2 J_0 '' = J_2 - J_0 $
+]
+
+#example[
+  Show that $y = x J_n (x)$ is a solution of,
+  $ x^2 dv(y, x, 2) - x dv(y, x) + (1 + x^2 - n^2) y = 0 $
 ]
