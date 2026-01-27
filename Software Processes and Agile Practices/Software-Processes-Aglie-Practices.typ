@@ -9,6 +9,7 @@
   title: [Software Processes and Agile Practices],
   author: "Monika",
 )
+#set math.equation(numbering: none)
 
 = Foundations of Agile Software Development
 
@@ -57,4 +58,64 @@ Agile methodologies address these challenges by:
 - Using iterative and incremental development
 - Prioritizing feedback over prediction
 
+$
+  "Plan" -> "Design" -> "Develop" -> "Testing" -> "Review" -> "Release" -> "Repeat"
+$
+
 == Agile Context
+
+#definition[Agile Context][
+  It refers to the specific environment or situation in which Agile methodologies are applied. This includes factors such as team size, project complexity, customer involvement, and organizational culture.
+  $
+    "Agile Context" = "nature of problem" + "nature of environment" + "nature of team"
+  $
+]
+
+Agile methodologies are particularly well-suited for projects with the following characteristics:
+- High uncertainty and changing requirements
+- Need for rapid delivery of working software
+- Close collaboration with customers and stakeholders
+- Small to medium-sized teams
+So we should not just blindly follow Agile practices, but rather adapt them to fit the specific context of the project and organization.\
+The core elements of Agile context are:
+- *Requirements Context:* Agile assumes _discovery during development_
+- *Technical Context:* Agile supports _evolutionary design_
+- * Business Context:* Agile prioritizes _early and frequent delivery_ of value
+- *Human and Team Context:* Agile relies on _people over process enforcement_
+- *Risk Context:* Agile manages risk _incrementally_
+
+== Agile Manifesto
+
+It is a short, fundamental document that outlines the core values and principles of Agile software development. It was created in 2001 by a group of software developers who sought to find better ways to develop software.
+
+- *Individuals and Interactions over Processes and Tools*:
+  - Skilled, motivated people are the primary drivers of success
+  - Tools support development, but they cannot replace communication and collaboration
+- *Working Software over Comprehensive Documentation:*
+  - Documentation is useful, but working software is the ultimate measure of progress
+  - Excessive documentation without validation through execution has limited value
+- *Customer Collaboration over Contract Negotiation:*
+  - Continuous engagement with customers leads to better alignment with real needs
+  - Rigid contracts often prevent adaptation when requirements evolve
+- *Responding to Change over following a Plan:*
+  - Plans are important, but adapting to new information is more important
+  - Change is treated as a source of value, not a disruption
+
+The manifesto explicitly says that items on the right still have value—but the items on the left are valued more.\
+The manifesto does not describe specific practices or methodologies, but it provides a guiding philosophy for Agile development emphasizing flexibility, collaboration, and customer-centricity.
+
+The manifesto is supported by 12 principles that provide more detailed guidance on how to implement Agile values in practice.
+=== Agile Principles
+
++ Early and continuous delivery of valuable software
++ Welcoming changing requirements, even late in development
++ Frequent delivery of working software
++ Daily collaboration between business and developers
++ Build projects around motivated individuals
++ Build projects around motivated individuals
++ Working software is the primary measure of progress
++ Sustainable development pace
++ Technical excellence and good design enhance agility
++ Simplicity—maximizing the amount of work not done
++ Self-organizing teams produce the best designs
++ Regular reflection and adaptation
