@@ -248,3 +248,15 @@ We can look at cases where $mu$ can be figured out if it is a function of $x$ or
 - If $M$ and $N$ are homogeneous functions of same degree, then, $mu = 1/ (M x + N y)$
 - If $M = f_1 (x y) y$ and $N = f_2 (x y) x$, and $M x - N y != 0$, then $mu = 1/ (M x - N y)$
 - If $M$ and $N$ are polynomials, then $mu = x^alpha y^beta$
+
+== Orthogonal Trajectories
+
+#definition[Tragectory][
+  A curve that intersects a given family of curves at every point is called a *trajectory* of the family of curves.
+]
+
+#definition[Orthogonal Trajectories][
+  A curve that intersects a given family of curves at right angles (90 degrees) at every point of intersection is called an *orthogonal trajectory* of the family of curves.
+]
+
+To find the orthogonal trajectories of a family of curves given by the differential equation $ dv(y, x) = f(x, y) $, we replace $ dv(y, x) $ with $ -dv(x, y) $ and solve the resulting differential equation.
