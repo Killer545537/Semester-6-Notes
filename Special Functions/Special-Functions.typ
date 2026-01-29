@@ -454,3 +454,29 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
   Show that $y = x J_n (x)$ is a solution of,
   $ x^2 dv(y, x, 2) - x dv(y, x) + (1 + x^2 - n^2) y = 0 $
 ]
+
+#example[Complex Numbers][
+  Show that,
+  $
+    cos(x sin theta) & = J_0 + 2 J_2 cos 2 theta + 2 J_4 cos 4 theta + dots.h \
+    sin(x sin theta) & = 2 J_1 sin theta + 2 J_3 sin 3 theta + dots.h \
+    cos(x cos theta) & = J_0 - 2 J_2 cos 2 theta + 2 J_4 cos 4 theta - dots.h \
+    sin(x cos theta) & = 2 J_1 sin theta + 2 J_3 sin 3 theta + dots.h \
+  $
+]
+#solution[
+  Put $t = e^(i theta)$ in the generating function and compare the real and imaginary parts.
+]
+
+#example[Integral Representation][
+  Show that,
+  $
+    J_0 (x) & = 1/pi integral_0^pi cos(x sin theta) dd(theta) \
+    J_n (x) & = 1/pi integral_0^pi cos(n theta - x sin theta) dd(theta)
+  $
+]
+#solution[
+  For the first one, just integrate the right hand side.
+
+  For the second one, find the integral of multiplying the previous properties by $cos n theta$ and $sin n theta$ and adding them up.
+]
