@@ -259,4 +259,4 @@ We can look at cases where $mu$ can be figured out if it is a function of $x$ or
   A curve that intersects a given family of curves at right angles (90 degrees) at every point of intersection is called an *orthogonal trajectory* of the family of curves.
 ]
 
-To find the orthogonal trajectories of a family of curves given by the differential equation $ dv(y, x) = f(x, y) $, we replace $ dv(y, x) $ with $ -dv(x, y) $ and solve the resulting differential equation.
+To find the orthogonal trajectories of a family of curves given by the differential equation $ dv(y, x) = f(x, y) $, we replace#footnote[For polar coordinates, replace $dv(r, theta)$ with $-r^2 dv(theta, r)$] $ dv(y, x) $ with $ -dv(x, y) $ and solve the resulting differential equation.
