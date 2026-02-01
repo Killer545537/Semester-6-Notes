@@ -11,9 +11,9 @@
 )
 #set math.equation(numbering: none)
 
-= Ordinary Differential Equations
+= Foundations of Differential Equations
 
-== Definitions
+== Introuction to Differential Equations and their Classification
 
 #definition[Differential Equation][
   An equation involving derivatives of one or more dependent variables with respect to one or more independent variables is called a *differential equation*.
@@ -79,11 +79,13 @@ There are three types of solutions to differential equations:
 ]
 #colbreak()
 
-== Linear Independence of Solutions
+== Linear Independence and Dependence of Functions
 
 #definition[Linearly Independent Functions][
   The functions ${f_i}_1^n$ is said to be linearly independent on an interval $I$ if the equation $sum c_i f_i (x) = 0$ holds for all $x in I$ only when all constants $c_i = 0$. Otherwise, they are said to be linearly dependent on $I$.
 ]
+
+== The Wronskian and its Properties
 
 #definition[Wronskian][
   The *Wronskian* of n functions ${f_i}_1^n$ is defined as:
@@ -98,6 +100,10 @@ There are three types of solutions to differential equations:
   $
   If the Wronskian is non-zero at some point in the interval $I$, then the functions are linearly independent on $I$.#footnote[However, if the Wronskian is zero at some point, it does not necessarily imply that the functions are linearly dependent.]
 ]
+
+= Existence and Uniqueness Theory
+
+== Existence and Uniqueness of Solutions of Differential Equations
 
 #theorem[Existence and Uniqueness Theorem for $n^"th"$ Order ODE][
   Let $a_i(x)$ be continuous functions on an interval $I$ containing the point $x = x_0$ with $a_0(x) != 0$. Then, for any given initial conditions:
@@ -192,6 +198,8 @@ There are three types of solutions to differential equations:
   To find the ODE, which I am not a bitch so I won't do, can be found using, $ y = c_1 x^2 + c_2 x^2 ln x $ and then finding $c_1$ and $c_2$.
 ]
 
+== Abel's Formula and its Significance
+
 #lemma[Abel's Formula][
   Consider the differential equation $y'' + P y' + Q y = 0 med forall x in I$ where $P$ and $Q$ are continuous functions defined on $I$. Let $y_1$ and $y_2$ be linearly independent solutions of the above equation, then,
   $ W(y_1, y_2)(x) = exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0) $
@@ -206,14 +214,20 @@ There are three types of solutions to differential equations:
   $
 ]
 
-= Solution of First Order Ordinary Differential Equations
+= First-Order and First-Degree Differential Equations
 
-We already know that the solution of the general first order differential equation of the type, $ y' + P y = Q $ is given by,
-$
-  y * "IF" = integral Q * "IF" dd(x) quad ("where" "IF" = exp(integral P dd(x)))
-$
+== Pfaffian Differential Equations
+
+#definition[Pfaffian Differential Equation][
+  In variables $x_1$, $x_2$, $dots$, $x_n$, a Pfaffian differential equation has the form,
+  $
+    A_1(x_1, x_2, dots, x_n) dd(x_1) + A_2(x_1, x_2, dots, x_n) dd(x_2) + dots + A_n(x_1, x_2, dots, x_n) dd(x_n) = 0
+  $
+]
 
 == Exact Differential Equation
+
+These are a special case of Pfaffian differential equations in two variables.
 
 #definition[Exact Equation][
   An expression $M dd(x) + N dd(y) = 0$, where $M$ and $N$  are functions of $x$ and $y$, is called an exact differential equation if there exists a function $F$ such that,
@@ -221,6 +235,8 @@ $
     M dd(x) + N dd(y) = dd(F)
   $#footnote[$dd(F)$ rrepresents the total differential of $F$ given by $dd(F) = pdv(F, x) dd(x) + pdv(F, y) dd(y)$]
 ]
+
+=== Necessary and Sufficient Condition for Exactness
 
 #definition[Exact Differential Equation][
   Consider the differential equation, $ M dd(x) + N dd(y) = 0 $ where $M$ and $N$ are continuous functions and have continuous partial derivatives for all points $(x, y)$ in $bb(R)^2$. Then the necessary and sufficient condition for it to be exact is,
@@ -235,7 +251,7 @@ where $c$ is any constant and $F$ is such that $pdv(F, x) = M$ and $pdv(F, y) = 
 
 Finding, $F$ on the other hand is not so trivial but has pretty easy steps which are trivial.
 
-=== Inexact Differential Equations
+== Equations Reducible to Exact Equations
 
 Say $M dd(x) + N dd(y) = 0$ is not exact, then, we can mutiply by some function say $mu$ such that,
 $ mu M dd(x) + mu N dd(y) = 0 $
@@ -249,7 +265,14 @@ We can look at cases where $mu$ can be figured out if it is a function of $x$ or
 - If $M = f_1 (x y) y$ and $N = f_2 (x y) x$, and $M x - N y != 0$, then $mu = 1/ (M x - N y)$
 - If $M$ and $N$ are polynomials, then $mu = x^alpha y^beta$
 
-== Orthogonal Trajectories
+=== Bernoulli's Differential Equation
+
+A Bernoulli's differential equation is a first-order ordinary differential equation of the form,
+$ dv(y, x) + P(x) y = Q(x) y^n $
+
+= Orthogonal Trajectories
+
+== Concept of Orthogonal Trajectories
 
 #definition[Tragectory][
   A curve that intersects a given family of curves at every point is called a *trajectory* of the family of curves.
@@ -259,4 +282,6 @@ We can look at cases where $mu$ can be figured out if it is a function of $x$ or
   A curve that intersects a given family of curves at right angles (90 degrees) at every point of intersection is called an *orthogonal trajectory* of the family of curves.
 ]
 
-To find the orthogonal trajectories of a family of curves given by the differential equation $ dv(y, x) = f(x, y) $, we replace#footnote[For polar coordinates, replace $dv(r, theta)$ with $-r^2 dv(theta, r)$] $ dv(y, x) $ with $ -dv(x, y) $ and solve the resulting differential equation.
+== Determination of Orthogonal Trajectories in Cartesian and Polar Coordinates
+
+To find the orthogonal trajectories of a family of curves given by the differential equation $dv(y, x) = f(x, y)$, we replace#footnote[For polar coordinates, replace $dv(r, theta)$ with $-r^2 dv(theta, r)$] $dv(y, x)$ with $-dv(x, y)$ and solve the resulting differential equation.
