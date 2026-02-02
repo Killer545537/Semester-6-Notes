@@ -480,3 +480,61 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
 
   For the second one, find the integral of multiplying the previous properties by $cos n theta$ and $sin n theta$ and adding them up.
 ]
+
+#example[
+  Show that, $ integral_0^infinity e^(-a x) J_0 (b x) dd(x) = 1/sqrt(a^2 + b^2) $
+]
+
+#example[
+  Prove that $[J_0 (x)]^2 + 2[J_1(x)]^2 + 2[J_2(x)]^2 + dots = 1$
+]
+#solution[
+  Use the expansions of $cos (x sin theta)$ and $sin (x sin theta)$. Square them and use the orthogonality of $sin$ and $cos$ functions to simplify. Finally, add the two results.
+]
+
+= Hypergeometric Functions
+
+== Pochhammer Symbol
+
+This is nothing but the rising factorial which we defined earlier. It is denoted by $(alpha)_n$.
+
+== General Form of Hypergeometric Functions
+
+#definition[Hypergeometric Functions][
+  The *Generalized Hypergeometric Function* is defined as,
+  $
+    attach(F, bl: m, br: n) (alpha_1, dots, alpha_m ; beta_1, dots, beta_n ; x) = sum_(k = 0)^infinity ((product_(i = 1)^m (alpha_i)_i) / (product_(j = 1)^n (beta_j)_i)) (x^k)/(k!)
+  $
+]
+It converges for $|x| < 1$.
+
+== Gauss's Hypergeometric Equation
+
+The *Gauss's Hypergeometric Equation* is given by,
+$ x(1 - x) y'' + [c - (a + b - 1)x] y' - a b y = 0 $
+The solution to this equation is given by,
+$
+  attach(F, bl: 2, br: 1) (a, b; c; X) = 1 + (a b)/c x + (a (a + 1) b (b + 1))/(c (c + 1)) x^2/2! + dots.h
+$
+
+== Particular Cases of Hypergeometric Functions
+
+In our course we will only look at two cases of the hypergeometric functions.
+
+=== Confluent Hypergeometric Function
+
+#definition[Confluent Hypergeometric Function][
+  The *Confluent Hypergeometric Function* is defined as,
+  $
+    attach(F, bl: 1, br: 1) (a; b; x) = sum_(k = 0)^infinity (a)_k / (b)_k (x^k)/(k!)
+  $
+]
+
+=== Hypergeometric Function
+
+#definition[Hypergeometric Function][
+  The *Hypergeometric Function* is defined as,
+  $
+    attach(F, bl: 2, br: 1) (a, b; c; x) = sum_(k = 0)^infinity ((a)_k (b)_k) / (c)_k (x^k)/(k!)
+  $
+]
