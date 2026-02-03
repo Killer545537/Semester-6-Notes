@@ -285,3 +285,16 @@ $ dv(y, x) + P(x) y = Q(x) y^n $
 == Determination of Orthogonal Trajectories in Cartesian and Polar Coordinates
 
 To find the orthogonal trajectories of a family of curves given by the differential equation $dv(y, x) = f(x, y)$, we replace#footnote[For polar coordinates, replace $dv(r, theta)$ with $-r^2 dv(theta, r)$] $dv(y, x)$ with $-dv(x, y)$ and solve the resulting differential equation.
+
+= Higher Degree Differential Equations
+
+== First-Order Differentials Equations of Degree $n > 1$
+
+A first-order differential equation of degree $n$ is given by,
+$ sum_(i = 0)^n P_i (dv(x, y))^i = 0 $
+In such cases it is common to write $dv(x, y) = p$. Now, if the equation is solvable for $p$, we can do that to get,
+$
+  product_(i = 0)^n (p - f_i (x, y)) = 0 => p = f_i (x, y) => F_i (x, y, c) = 0
+$
+Thus, giving the final solution as,
+$ product F_i (x, y, c) = 0 $
