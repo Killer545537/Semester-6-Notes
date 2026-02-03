@@ -538,3 +538,56 @@ In our course we will only look at two cases of the hypergeometric functions.
     attach(F, bl: 2, br: 1) (a, b; c; x) = sum_(k = 0)^infinity ((a)_k (b)_k) / (c)_k (x^k)/(k!)
   $
 ]
+
+These functions can be used to represent a lot of series expansions which we'll see in the problems.
+
+#example[Binomial Expansion][
+  Show that,
+  $ (1 + x)^n = attach(F, bl: 2, br: 1) (-n, 1; 1; -x) $
+]
+
+#example[Logarithm][
+  Show that,
+  $ ln(1 + x) = x attach(F, bl: 2, br: 1) (1, 1; 2; -x) $
+]
+
+#example[Series Close to our Heart][
+  Show that,
+  $ 1/(1 - x) = attach(F, bl: 2, br: 1) (1, b; b ; x) $
+]
+
+#example[Inverse Trigonometric Functions][
+  Show that,
+  $
+    sin^(-1) (x) & = x attach(F, bl: 2, br: 1) (1/2, 1/2; 3/2; x^2) \
+    cos^(-1) (x) & = pi/2 - x attach(F, bl: 2, br: 1) (1/2, 1/2; 3/2; x^2) \
+    tan^(-1) (x) & = x attach(F, bl: 2, br: 1) (1, 1/2; 3/2; -x^2) \
+  $
+]
+
+== Integral Formula for Hypergeometric Functions
+
+#theorem[Euler's Integral Representation][
+  If $|x| < 1$ and $gamma > beta > 0$, then,
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) = (Gamma (gamma)) / (Gamma (beta) Gamma (gamma - beta)) integral_0^1 t^(beta - 1) (1 - t)^(gamma - beta - 1) (1 - x t)^(-alpha) dd(t)
+  $
+]
+#proof[Euler's Integral Representation][
+  #show math.equation: set block(breakable: true)
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) & = sum_(n = 0)^infinity ((alpha)_n (beta)_n) / ((gamma)_n) (x^n)/(n!) \
+    &= sum_n (Gamma (gamma)) / (Gamma (beta) Gamma (gamma - beta)) beta (beta + n, gamma - beta) (alpha)_n (x^n)/(n!) (because (alpha)_n = (Gamma (alpha + n)) / (Gamma (alpha)))\
+    &= (Gamma (gamma)) / (Gamma (beta) Gamma (gamma - beta)) integral_0^1 t^(beta - 1) (1 - t)^(gamma - beta - 1) sum_n (alpha)_n (x t)^n / (n!) dd(t) \
+    &= (Gamma (gamma)) / (Gamma (beta) Gamma (gamma - beta)) integral_0^1 t^(beta - 1) (1 - t)^(gamma - beta - 1) (1 - x t)^(-alpha) dd(t)
+  $
+]
+
+#theorem[Pfaff Transformation][
+  Well, we will look at three of these,#footnote[The last one is actually called Euler Transformation but whatever.]
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) &= (1-x)^(-alpha) attach(F, bl: 2, br: 1) (alpha, gamma - beta; gamma; x/(x-1)) \
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) &= (1-x)^beta attach(F, bl: 2, br: 1) (gamma - alpha, beta; gamma; x/(x-1)) \
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) &= (1 - x)^(gamma - alpha - beta) attach(F, bl: 2, br: 1) (gamma - alpha, gamma - beta; gamma; x) \
+  $
+]
