@@ -74,6 +74,10 @@ Formally, a strategic game consists of players, strategy sets, and payoff functi
 
 In normal-form representation, the game is typically presented in a matrix format, where rows represent strategies of one player and columns represent strategies of another player. Each cell contains the payoffs for both players corresponding to the chosen strategies. The strategies are chosen without knowledge of the other players' choices.
 
+Formally, a strategic game is defined as,
+$ G = (N, (S_i)_(i in N), (u_i)_(i in N)) $
+where, $N$ is the  set of players, $S_i$ is the strategy set for player $i$, and $u_i$ is the payoff function for player $i$.
+
 == Players and Payoff Structures
 
 #definition[Player][
@@ -82,7 +86,7 @@ In normal-form representation, the game is typically presented in a matrix forma
 #definition[Strategy][
   A strategy for player $i$ is a complete contingent plan specifying an action for every possible situation the player might face.
 ]
-For each player $i$, the strategy set $S_i$ contains all possible strategies available to that player. The strategy profile $s = (s_1, s_2, dots.h, s_n)$ represents a combination of strategies chosen by all players.
+For each player $i$, the strategy set $S_i$ contains all possible strategies available to that player. The strategy profile $s = (s_1, s_2, dots.h, s_n) in S$ represents a combination of strategies chosen by all players.
 #definition[Dominant Strategy][
   A strategy that yields a higher payoff for a player regardless of the strategies chosen by other players. A strategy $s_i^*$ is dominant for player $i$ if,
   $
@@ -93,6 +97,7 @@ For each player $i$, the strategy set $S_i$ contains all possible strategies ava
 We will assume that all players are rational and a rational player will not choose a dominated strategy. The fact that all players are rational is common knowledge.
 
 Let us consider a simple example of a strategic game known as the Prisoner's Dilemma. Two players, Alice and Bob, can either "Cooperate" or "Defect". The payoffs are as follows#footnote[I won't explain the details of the game here, but you can see that both players have a dominant strategy to defect, leading to a suboptimal outcome for both]:
+#pagebreak()
 #align(center)[
   #table(
     align: center,
@@ -119,3 +124,25 @@ Games in strategic form are also called matrix games because they can be describ
 #definition[Rational][
   A strategy vector $s in S$ is termed rational if it is the unique result of a process of iterative elimination of weakly dominated strategies.
 ]
+
+== Pure Strategy Nash Equilibrium
+
+A *pure strategy Nash equilibrium* is a situation where every player is choosing a specific action and no one can gain by unilaterally changing their action.
+
+#example[Prisoner's Dilemma][
+  Here, each player can choose to either _cooperate_(C) or _defect_(D). If the other defects, your best response is to defect and when both defect, neither can imporove by changing alone. Thus, $(D, D)$ is the unique pure strategy Nash equilibrium, even though both players would be better off if they both cooperated.
+]
+
+#definition[Pure Strategy Nash Equilibrium][
+  A strategy profile $s^* = (s_1^*, s_2^*, dots.h, s_n^*)$ is a pure strategy Nash equilibrium if for every player $i$,
+  $
+    u_i (s_i^*, s_(-i)^*) >= u_i (s_i, s_(-i)^*) med forall s_i in S_i
+  $
+]
+It can also be defined in terms of best responses.
+$
+  "BR"_i (s_(-i)) = arg max_(s_i in S_i) u_i (s_i, s_(-i)) => s^* "is a PSNE" <=> s_i^* in "BR"_i (s_(-i)^*) forall i
+$
+Thus, we say that PSNE is a *fixed point* of the best responses.
+
+= Games with Perfect Information
