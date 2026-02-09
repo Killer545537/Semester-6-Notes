@@ -298,3 +298,7 @@ $
 $
 Thus, giving the final solution as,
 $ product F_i (x, y, c) = 0 $
+
+Now, that may not be possible. But it may be possible to solve for $x$ instead. This is pretty trivial as well, but here it is anyway. We write $dv(x, y) = p$ and then solve for $x$ to get something like,
+$ x = f(y, p) => 1/p = phi(y, p dv(p, y)) $
+Using this and the original equation to eliminate $p$, we get $g(x, y, c) = 0$ which again may not be possible and the final solution will be of the form, $x = f_1 (p, c) and y = f_2(p, c)$.
