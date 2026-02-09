@@ -591,3 +591,35 @@ These functions can be used to represent a lot of series expansions which we'll 
     attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) &= (1 - x)^(gamma - alpha - beta) attach(F, bl: 2, br: 1) (gamma - alpha, gamma - beta; gamma; x) \
   $
 ]
+
+The next few are fake ass theorems, just putting some values and getting some stupid results.
+
+#theorem[Kummer's Theorem][
+  Substituting, $gamma = beta - alpha + 1$ and $x = -1$ in the integral, we get,
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; beta - alpha + 1; -1) = (Gamma (beta - alpha + 1) Gamma (beta / 2 + 1)) / (Gamma (beta + 1) Gamma (beta / 2 + 1 - alpha))
+  $
+]
+
+#theorem[Gauss Theorem][
+  Substituting, $x = 1$ in the integral formula, we get,
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; 1) = (Gamma (gamma - beta - alpha) Gamma (gamma)) / (Gamma (gamma - alpha) Gamma (gamma - beta))
+  $
+]
+
+#theorem[Vandermonde's Theorem][
+  Put $alpha = -n$ in Gauss Theorem, we get,
+  $
+    attach(F, bl: 2, br: 1) (-n, beta; gamma; 1) = ((alpha - beta)_n) / ((gamma_n))
+  $
+]
+
+== Differentiation of Hypergeometric Functions
+
+The $n^"th"$-derivative of the hypergeometric function is,
+$
+  dv(, x, n) attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) = ((alpha)_n (beta)_n) / ((gamma)_n) attach(F, bl: 2, br: 1) (alpha + n, beta + n; gamma + n; x)
+$
+
+= Confluent Hypergeometric Functions
