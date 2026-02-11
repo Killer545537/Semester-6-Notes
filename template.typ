@@ -25,3 +25,5 @@
     #body
   ]
 }
+
+#let exam = note.with(variant: "Exam Note", counter: none)

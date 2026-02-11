@@ -1,4 +1,4 @@
-#import "../template.typ": conf, definition, solution
+#import "../template.typ": conf, definition, exam, solution
 #import "@preview/thmbox:0.2.0": *
 #import "@preview/ilm:1.4.2": *
 #import "@preview/physica:0.9.7": *
@@ -42,7 +42,9 @@ Game Theory has a wide range of applications across various fields, including:
 Each player chooses a strategy $s_i in S_i$ and the resulting strategy profile is denoted by $s = (s_1, s_2, dots.h, s_n) in S_1 times S_2 times dots.h times S_n$. The outcome of the game is determined by the strategy profile, and each player receives a payoff based on their chosen strategy and the strategies of others.
 
 #definition[Payoff/Utility][
-  A real-valued function $u_i$ representing player $i$'s preferences over outcomes. Higher values indicate more preferred outcomes.
+  A real-valued function $u_i$ representing player $i$'s preferences over outcomes. Higher values indicate more preferred outcomes. It is generally expressed as,
+  $ u_i (s_i, s_(i-i)) $
+  where $s_(i-i)$ denotes the strategies chosen by all players other than player $i$.
 ]
 #definition[Rationality][
   Players are assumed to be rational, meaning they will choose strategies that maximize their own payoffs given their beliefs about other players' strategies.
@@ -78,6 +80,17 @@ Formally, a strategic game is defined as,
 $ G = (N, (S_i)_(i in N), (u_i)_(i in N)) $
 where, $N$ is the  set of players, $S_i$ is the strategy set for player $i$, and $u_i$ is the payoff function for player $i$.
 
+#exam[Diagram of a Game][
+  Every game is made up of:
+  #columns(2)[
+    - Players
+    - Strategy
+    #colbreak()
+    - Utility/Payoff
+    - Rules
+  ]
+]
+
 == Players and Payoff Structures
 
 #definition[Player][
@@ -93,11 +106,19 @@ For each player $i$, the strategy set $S_i$ contains all possible strategies ava
     u_i (s_i^*, s_(-i)) >= u_i (s_i, s_(-i)) med forall s_i in S_i and forall s_(-i)
   $
 ]
+#definition[Best Response][
+  The best response correspondence of player $i$ is the mapping, $"BR"_i: S_(-i) arrows S_i$, defined by,
+  $
+    "BR"_i (s_(-i)) = { s_i in S_i | u_i (s_i, s_(-i)) >= u_i (s_i ', s_(-i)) forall s_i ' in S_i }
+  $
+]
+#exam[Dominant Strategy vs Best Response][
+  It may seem that the best response and the dominant strategy are the same, but they are not. The *dominant strategy* is a global property while the *best response* is a local property and depends on what the other players are doing. Now saying that *every dominant strategy is a best response* is true, but the converse is not. A best response may not be a dominant strategy because it may depend on the strategies chosen by other players. Thus, $s_i^* in "BR"_i (s_(-i)) forall s_(-i)$ meaning the dominant strategy is the best response to every possible opponent strategy.#footnote[We will look at a game like this called the *Stag Hunt Game* later.]
+]
 
 We will assume that all players are rational and a rational player will not choose a dominated strategy. The fact that all players are rational is common knowledge.
 
 Let us consider a simple example of a strategic game known as the Prisoner's Dilemma. Two players, Alice and Bob, can either "Cooperate" or "Defect". The payoffs are as follows#footnote[I won't explain the details of the game here, but you can see that both players have a dominant strategy to defect, leading to a suboptimal outcome for both]:
-#pagebreak()
 #align(center)[
   #table(
     align: center,
@@ -116,9 +137,25 @@ Games in strategic form are also called matrix games because they can be describ
 #definition[Weakly Dominated Strategy][
   A strategy $s_i$ of player $i$ is called weakly dominated if there exists another strategy $s_i^*$ of player $i$ satisfying,
   $
-      u_i (s_i^*, s_(-i)) & >= u_i(s_i, s_(-i)) med forall s_(-i) in S_(-i) \
-    u_i (s_i^*, s_(-i)^*) & >= u_i(s_i, s_(-i)^*) exists s_(-i)^* in S_(-i)
+    u_i (s_i^*, s_(-i)) & >= u_i (s_i, s_(-i)) med forall s_(-i) in S_(-i) \
+    exists s_(-i)^* in S_(-i) in.rev u_i (s_i^*, s_(-i)^*) &> u_i (s_i, s_(-i)^*)
   $
+]
+#definition[Pareto Optimality][
+  A strategy profile $s^* in S$ is pareto optimal if there does not exist another profile $s' in S$ such that,
+  $
+                         u_i (s') & >= u_i (s^*) med forall i in N \
+    exists j in N in.rev u_j (s') & > u_j (s^*)
+  $
+]
+We can deduce the definition of *Pareto Dominance* from the definition of Pareto optimality. A strategy profile $s'$ is said to Pareto dominate another strategy profile $s$ if,
+$
+                       u_i (s') & >= u_i (s) med forall i in N \
+  exists j in N in.rev u_j (s') & > u_j (s)
+$
+
+#exam[Weakly Dominated Strategy vs Pareto Optimality][
+  Weak dominance is *intra-player comparison* while Pareto optimality is *inter-player comparison*.
 ]
 
 #definition[Rational][
@@ -128,10 +165,6 @@ Games in strategic form are also called matrix games because they can be describ
 == Pure Strategy Nash Equilibrium
 
 A *pure strategy Nash equilibrium* is a situation where every player is choosing a specific action and no one can gain by unilaterally changing their action.
-
-#example[Prisoner's Dilemma][
-  Here, each player can choose to either _cooperate_(C) or _defect_(D). If the other defects, your best response is to defect and when both defect, neither can imporove by changing alone. Thus, $(D, D)$ is the unique pure strategy Nash equilibrium, even though both players would be better off if they both cooperated.
-]
 
 #definition[Pure Strategy Nash Equilibrium][
   A strategy profile $s^* = (s_1^*, s_2^*, dots.h, s_n^*)$ is a pure strategy Nash equilibrium if for every player $i$,
@@ -143,6 +176,32 @@ It can also be defined in terms of best responses.
 $
   "BR"_i (s_(-i)) = arg max_(s_i in S_i) u_i (s_i, s_(-i)) => s^* "is a PSNE" <=> s_i^* in "BR"_i (s_(-i)^*) forall i
 $
-Thus, we say that PSNE is a *fixed point* of the best responses.
+Thus, we say that PSNE is a *fixed point* of the best responses or it is the intersection of the best responses.
+
+The Nash equilibria is a *self-enforcing agreement* because no player has an incentive to deviate from their strategy given the strategies of others. It is also the *no-regret outcome* because no player regrets their choice after seeing the choices of others.#footnote[There is a nice mathematical definition of regret, but we won't go into that here.]
+
+#exam[Presence of PSNE][
+  It is important to note that a game may have multiple pure strategy Nash equilibria, a unique pure strategy Nash equilibrium, or no pure strategy Nash equilibrium at all.
+]
+
+#exam[Finding PSNE][
+  We can easily find it by looking at the payoff matrix and checking for each strategy profile if any player can improve their payoff by unilaterally changing their strategy. If no player can improve, then that profile is a PSNE. However, if *both players change* their strategy and get a better payoff, then that profile is not a PSNE.
+]
+
+We will work out all these concepts for multiple games in a later chapter but first we'll cover the theory behind it.
 
 = Games with Perfect Information
+
+= Dominance and Equilibrium
+
+= Classical Strategic Games
+
+== Prisoner's Dilemma
+
+#example[Prisoner's Dilemma][
+  Here, each player can choose to either _cooperate_(C) or _defect_(D). If the other defects, your best response is to defect and when both defect, neither can imporove by changing alone. Thus, $(D, D)$ is the unique pure strategy Nash equilibrium, even though both players would be better off if they both cooperated.
+]
+
+#exam[Game of Prisoner's Dilemma][
+  In this game, the players are the prisoners ${P_1, P_2}$, the strategies are {Cooperate, Defect}, and the payoffs are given by the matrix.
+]
