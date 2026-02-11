@@ -361,6 +361,8 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
   This is trivial and simply the first term after dividing by $x^n$.
 ]
 
+== Generating Function
+
 #example[Generating Function][
   Show that,
   $ e^(x/2 (t - 1/t)) = sum_(n = -infinity)^infinity J_n (x) t^n $
@@ -388,6 +390,8 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
 #solution[
   Just differentiate the series.
 ]
+
+== Recurrence Formulae
 
 #example[Recurrence Relations][
   Show that,
@@ -420,6 +424,8 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
   $
   has the solution $c_1 J_n (k x) + c_2 J_(-n) (k x)$.
 ]
+
+== Orthogonality Properties
 
 #example[Orthogonality][
   Show that,
@@ -467,6 +473,8 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
 #solution[
   Put $t = e^(i theta)$ in the generating function and compare the real and imaginary parts.
 ]
+
+== Integral Formula
 
 #example[Integral Representation][
   Show that,
@@ -623,3 +631,18 @@ $
 $
 
 = Confluent Hypergeometric Functions
+
+Consider the Gauss Hypergeometric Equation, and put $x = z / beta$,
+$
+  z (1 - z/beta) dv(y, z, 2) + [gamma - (1 + (1 + alpha)/ beta) z] dv(y, z) - alpha y = 0
+$
+with a solution, $y = attach(F, bl: 2, br: 1) (alpha, beta, gamma, z / beta)$. Take the limit as $beta -> infinity$, the equation becomes,
+$
+  z dv(y, z, 2) + (gamma - z) dv(y, z) - alpha y = 0
+$
+Moreover, the solution,
+$
+  y = lim_(beta -> infinity) sum_r ((alpha)_r (beta)_r) / ((gamma)_r) (z / beta)^r (1 / r!) = attach(F, bl: 1, br: 1) (alpha; gamma; z)
+$
+
+Thus, $y = attach(F, bl: 1, br: 1) (alpha; gamma; x)$ is the solution to $x dv(y, x, 2) + (gamma - x) dv(y, x) - alpha y = 0$.
