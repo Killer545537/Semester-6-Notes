@@ -190,18 +190,242 @@ The Nash equilibria is a *self-enforcing agreement* because no player has an inc
 
 We will work out all these concepts for multiple games in a later chapter but first we'll cover the theory behind it.
 
-= Games with Perfect Information
+== Normal Form Analysis
+
+This basically means that we analyze the game using its normal form representation, which is a matrix that lists the players, their strategies, and the corresponding payoffs. This allows us to systematically evaluate the strategic interactions and identify equilibria.
+
+This studies best response correspondences, nash equilibria, and the process of iterated elimination of dominated strategies. It also involves analyzing the stability of equilibria and how players might adjust their strategies over time.
+
+= Classification of Games
+
+== Classification based on Information about Moves
+
+A game is said to have *perfect information* if all players know the moves that have taken place before making their own move (like chess). In contrast, a game has *imperfect information* if at least one player does not know the moves of others before making their decision (like rock-paper-scissors).
+
+== Classification based on Information about Payoffs
+
+A game is said to have *complete information* if all players know the payoff functions of all other players. In contrast, a game has *incomplete information* if at least one player does not know the payoff functions of others.
+
+== Classification based on Timing
+
+A game is said to be *simultaneous* if all players choose their strategies at the same time without knowledge of others' choices. A game is *sequential* if players make their moves one after another, with later players having some knowledge of earlier actions.
+
+== Classification based on Strategy Types
+
+A game is said to have *pure strategies* if players choose a specific action with certainty. A game has *mixed strategies* if players randomize over their actions, assigning probabilities to each possible strategy.
+
+== Classification based on Conflict Structure
+
+A game is said to be *zero-sum* if one player's gain is exactly equal to another player's loss. A game is *non-zero-sum* if the total payoff to all players can vary, allowing for the possibility of mutual gains or losses.
+
+== Classification based on Cooperation
+
+A game is said to be *cooperative* if players can form binding agreements and coordinate their strategies to achieve better outcomes. A game is *non-cooperative* if players cannot make enforceable agreements and must rely on individual strategies.
 
 = Dominance and Equilibrium
+
+== Iterated Strict Dominance
+
+This is a method in used in normal-form analysis.
+
+#definition[Iterated Strict Dominance][
+  A strategy is strictly dominated if there exists another strategy that always yields a higher payoff regardless of what the other players do. Iterated strict dominance is the process of repeatedly eliminating strictly dominated strategies until no more can be eliminated.
+]
+
+It basically means that if a strategy is strictly dominated, then a rational player would never choose it. By iteratively removing such strategies, we can simplify the game and potentially identify the Nash equilibrium.
+
+#exam[Why does it work?][
+  The reason is pretty obvious, since the players are rational and the rationality is common knowledge, no player would choose a strictly dominated strategy. Thus, we can eliminate it from consideration and focus on the remaining strategies. This process continues until we are left with strategies that are not strictly dominated, which may lead us to the Nash equilibrium.
+]
+
+In this method, for finite games, the order of elimination does not matter and we will always end up with the same reduced game. However, for infinite games, the order of elimination can affect the outcome.
+
+#exam[Iterated Strict Dominance vs PSNE][
+  The Nash equilibria is always one of the strategies that survive iterated strict dominance, but the converse is not true. A strategy that survives iterated strict dominance may not be a Nash equilibrium because it may not be a best response to the strategies of others.
+]
+
+We will look at the continuous case of this in some classical games later.
 
 = Classical Strategic Games
 
 == Prisoner's Dilemma
 
-#example[Prisoner's Dilemma][
-  Here, each player can choose to either _cooperate_(C) or _defect_(D). If the other defects, your best response is to defect and when both defect, neither can imporove by changing alone. Thus, $(D, D)$ is the unique pure strategy Nash equilibrium, even though both players would be better off if they both cooperated.
-]
+Two prisoners, $P_1$ and $P_2$ are arrested and charged with a crime. They are interrogated separately and cannot communicate with each other. Each prisoner has two options: to cooperate with the other by remaining silent or to defect by betraying the other. The payoffs for each combination of strategies are as follows:
 
 #exam[Game of Prisoner's Dilemma][
-  In this game, the players are the prisoners ${P_1, P_2}$, the strategies are {Cooperate, Defect}, and the payoffs are given by the matrix.
+  In this game, the players are the prisoners ${P_1, P_2}$, the strategies are {Confess, Deny}, and the payoffs are given by the matrix. The rule is no communication between the prisoners.
 ]
+
+#align(center)[
+  #table(
+    align: center,
+    columns: 4,
+    table.cell(stroke: none, []), table.cell(colspan: 3, $P_2$),
+    table.cell(rowspan: 3, align: center + horizon, [$P_1$]),
+    [],
+    [Confess],
+    [Deny],
+    [Confess], [$(-3, -3)$], [$(0, -4)$],
+    [Deny], [$(-4, 0)$], [$( -1, -1)$],
+  )
+]
+
+=== Strictly Dominated Strategies
+
+Looking at the payoff matrix, we can see that for both players, "Confess" strictly dominates "Deny". This is because:
+#columns(2)[
+  - *For $P_1$*:
+    - $u_1 (C, C) > u_1(D, C)$
+    - $u_1 (C, D) > u_1(D, D)$
+  #colbreak()
+  - *For $P_2$*:
+    - $u_2 (C, C) > u_2(D, C)$
+    - $u_2 (C, D) > u_2(D, C)$
+]
+Thus, both players have a strictly dominant strategy to confess.\ This leads to a Nash equilibrium at $("Confess", "Confess")$ with payoffs $(-3, -3)$, which is a suboptimal outcome for both players compared to $("Deny", "Deny")$ with payoffs $(-1, -1)$. This illustrates the dilemma faced by the prisoners, where rational self-interest leads to a worse outcome for both.
+
+Well, if we remove the strictly dominated strategy "Deny" for both players, we are left with only one strategy profile, which is $("Confess", "Confess")$. This confirms that it is the unique pure strategy Nash equilibrium of the game.
+
+=== Best Response Analysis
+
+To find the best responses, we can analyze the payoff matrix for each player:
+#columns(2)[
+  - For $P_1$:
+    - $"BR"_1 (D) = C$
+    - $"BR"_1 (C) = C$
+  #colbreak()
+  - For $P_2$:
+    - $"BR"_2 (D) = C$
+    - $"BR"_2 (C) = C$
+]
+Thus, the best response for both players is to confess regardless of the other player's choice, confirming that $("Confess", "Confess")$ is indeed a Nash equilibrium.
+
+=== Pareto Optimality
+
+Now, we look at each outcome one by one and check if it is Pareto optimal:
+- $("Confess", "Confess")$: This outcome is not Pareto optimal because either player can improve their payoffs by switching to Deny, resulting in a better situation for both.
+- $("Confess", "Deny")$ or $("Deny", "Confess")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
+- $("Deny", "Deny")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
+Thus, the Pareto Optimal outcomes are ${("Confess", "Deny"), ("Deny", "Confess"), ("Deny", "Deny")}$.
+
+There are a lot of examples like the _Cold War Game_ which are just Prisoner's Dilemma spin-offs.
+
+== Stag Hunt Game
+
+Two hunters can either hunt a stag together or hunt a rabbit individually. Hunting the stag requires cooperation, while hunting the rabbit can be done alone. The payoffs are as follows:
+
+#align(center)[
+  #table(
+    align: center,
+    columns: 4,
+    table.cell(stroke: none, []), table.cell(colspan: 3, $H_2$),
+    table.cell(rowspan: 3, align: center + horizon, [$H_1$]),
+    [],
+    [Stag],
+    [Rabbit],
+    [Stag], [$(2, 2)$], [$(0, 1)$],
+    [Rabbit], [$(1, 0)$], [$(1, 1)$],
+  )
+]
+
+#exam[Game of Stag Hunt][
+  In this game, the players are the hunters ${H_1, H_2}$, the strategies are {Stag, Rabbit}, and the payoffs are given by the matrix. There is no rule about communication, but the hunters can observe each other's actions before making their own decision.
+]
+
+=== Strictly Dominated Strategies
+
+Looking at the payoff matrix, we can see that there are no strictly dominated strategies for either player. This is because:
+#columns(2)[
+  - For $H_1$:
+  - $u_1 (S, S) > u_1(R, S)$
+  - $u_1 (R, R) > u_1(S, R)$
+    #colbreak()
+    - For $H_2$:
+  - $u_2 (S, S) > u_2(S, R)$
+  - $u_2 (R, R) > u_2(R, S)$
+]
+Thus, there are no strictly dominant strategies in this game.
+
+=== Best Response Analysis
+
+To find the best responses, we can analyze the payoff matrix for each player:
+#columns(2)[
+  - For $H_1$:
+  - $"BR"_1 (S) = S$
+  - $"BR"_1 (R) = R$
+  #colbreak()
+  - For $H_2$:
+  - $"BR"_2 (S) = S$
+  - $"BR"_2 (R) = R$
+]
+Thus, the best response for each player depends on the other player's choice. If one player chooses Stag, the best response for the other is to also choose Stag. If one player chooses Rabbit, the best response for the other is to also choose Rabbit. This leads to two pure strategy Nash equilibria: $("Stag", "Stag")$ and $("Rabbit", "Rabbit")$.
+
+=== Pareto Optimality
+
+Now, we look at each outcome one by one and check if it is Pareto optimal:
+- $("Stag", "Stag")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
+- $("Stag", "Rabbit")$ or $("Rabbit", "Stag")$: This outcome is not Pareto optimal since the player choosing Rabbit can improve their payoff by switching to Stag, resulting in a better situation for both.
+- $("Rabbit", "Rabbit")$: This outcome is not Pareto optimal because both players can improve their payoffs by switching to Stag, resulting in a better situation for both.
+Thus, the only Pareto Optimal outcome is $("Stag", "Stag")$.
+
+This is a very interesting game because it has two pure strategy Nash equilibria, one of which is Pareto optimal and the other is not. This illustrates the concept of *coordination games*, where players must coordinate their strategies to achieve the best outcome.
+
+There is a million different games who can dress just like me and walk, talk and act like me but they are just spin-offs, like _Startup Game_ or _Investment Game_.
+
+== Battle of the Sexes
+
+A couple is trying to decide on an activity for the evening. The husband prefers to go to a football game, while the wife prefers to go to a ballet. However, both would rather be together than apart. The payoffs are as follows:
+#align(center)[
+  #table(
+    align: center,
+    columns: 4,
+    table.cell(stroke: none, []),
+    table.cell(colspan: 3, $W$),
+    table.cell(rowspan: 3, align: center + horizon, [$H$]),
+    [],
+    [Football],
+    [Ballet],
+    [Football], [$(10, 5)$], [$(0, 0)$],
+    [Ballet], [$(0, 0)$], [$(5, 10)$],
+  )
+]
+
+#exam[Game of Battle of the Sexes][
+  In this game, the players are the husband $H$ and the wife $W$, the strategies are {Football, Ballet}, and the payoffs are given by the matrix. There is no rule about communication, but the couple can discuss their preferences before making their decision.
+]
+
+=== Strictly Dominated Strategies
+
+Looking at the payoff matrix, we can see that there are no strictly dominated strategies for either player. This is because:
+#columns(2)[
+  - For $H$:
+    - $u_H (F, F) > u_H (B, F)$
+    - $u_H (B, B) > u_H (F, B)$
+  #colbreak()
+  - For $W$:
+    - $u_W (F, F) > u_W (F, B)$
+    - $u_W (B, B) > u_W (B, F)$
+]
+Thus, there are no strictly dominant strategies in this game.
+
+=== Best Response Analysis
+
+To find the best responses, we can analyse the payoff matrix for each player:
+#columns(2)[
+  - For $H$:
+    - $"BR"_H (F) = F$
+    - $"BR"_H (B) = B$
+  #colbreak()
+  - For $W$:
+    - $"BR"_W (F) = F$
+    - $"BR"_W (B) = B$
+]
+Thus, the best response for each player depends on the other player's choice. If one player chooses Football, the best response for the other is to also choose Football. If one player chooses Ballet, the best response for the other is to also choose Ballet. This leads to two pure strategy Nash equilibria: $("Football", "Football")$ and $("Ballet", "Ballet")$.
+=== Pareto Optimality
+Now, we look at each outcome one by one and check if it is Pareto optimal:
+- $("Football", "Football")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
+- $("Football", "Ballet")$ or $("Ballet", "Football")$: This outcome is not Pareto optimal since both players can improve their payoffs by coordinating on either Football or Ballet, resulting in a better situation for both.
+- $("Ballet", "Ballet")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
+Thus, the Pareto Optimal outcomes are ${("Football", "Football"), ("Ballet", "Ballet")}$.
+
+This game illustrates the concept of *coordination games* with conflicting preferences, where players must coordinate their strategies to achieve a mutually beneficial outcome.
