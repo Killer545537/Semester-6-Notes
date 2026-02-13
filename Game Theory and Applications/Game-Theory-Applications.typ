@@ -510,3 +510,82 @@ $
 Honestly, this is pretty *uninteresting*, at $a = b = 1$ and $c = 1$, we get the exact same scenario as the tragedy of the commons, where both firms produce $1/3$ of the output and get a payoff of $1/9$. This illustrates how competition can lead to suboptimal outcomes for firms in a duopoly, similar to how individual incentives can lead to the tragedy of the commons.
 
 Also, I won't be a _little bitch_ and calculate everything for this again.
+
+= Strategic Decision Making
+
+== Final Offer Arbitration
+
+Consider a union which demands a wage and a firm which proposes a different wage but cannot agree easily. So instead an arbitrator is hired. This arbitrator instead of choosing any _compromise number_ follows a rule:
+- Each side submits one final offer
+- The arbitrator *must choose only one of the offers*
+In this scenario, neither party can choose something extreme since the loss will be too extreme. So, you must choose something reasonable which has a higher chance of being closer to something choosen. This encourages *moderation*.
+
+== Strategic Voting
+
+It is a situation in which a voter does not vote for their true most-preferred alternative, but instead votes in a way that produces a more favorable outcome given how others are expected to vote.
+
+A very simple example is when there are three candidates, A, B, and C, and a voter prefers $"A" > "B" > "C"$. If the voter believes that A has no chance of winning and that B and C are the main contenders, they might *vote for B instead* of A to prevent C from winning. This is an example of strategic voting, where the voter is not voting for their true preference (A) but is instead voting strategically to influence the outcome in a way that they perceive as more favorable (B over C).
+
+#exam[Not Done][
+  The mathematical modelling of this chapter is not talked about anywhere in my course except the syllabus, so this is just there for completion.
+]
+
+= Mixed Strategy Games
+
+This is different from _pure strategy games_ where players choose a specific action with certainty. In mixed strategy games, players randomize over their actions, assigning probabilities to each possible strategy.
+
+Now, the game is still represented in normal form, but instead of choosing a single strategy, players choose a probability distribution over their strategies. The payoff for each player is then calculated as the expected payoff based on the probabilities assigned to each strategy.
+
+#definition[Mixed Strategy][
+  A mixed strategy of player $i$ is a probability distribution over $S_i$.
+  $ sigma_i : S_i -> [0, 1] $
+  such that $sum_(s_i in S_i) sigma_i (s_i) = 1$. The set of all mixed strategies for player $i$ is denoted by $Delta (S_i)$.
+]
+#definition[Mixed Strategy Profile][
+  A mixed strategy profile is a tuple of mixed strategies, one for each player. It is denoted by $sigma = (sigma_1, sigma_2, dots.h, sigma_n)$ where $sigma_i in Delta (S_i)$ for each player $i$.
+]
+
+#definition[Mixed Strategy Nash Equilibrium][
+  A mixed strategy profile $sigma^* = (sigma_1^*, sigma_2^*, dots.h, sigma_n^*)$ is a mixed strategy Nash equilibrium if for every player $i$,
+  $
+    u_i (sigma_i^*, sigma_(-i)^*) >= u_i (sigma_i, sigma_(-i)^*) med forall sigma_i in Delta (S_i)
+  $
+]
+
+Moreover, since the strategies are random, the payoffs become _expected values_.
+#definition[Expected Payoff][
+  $
+    U_i (sigma_1, sigma_2, dots, sigma_n) = sum_(s in S_1 times S_2 times dots times S_n) (product_(j = 1)^n sigma_j (s_j)) u_i (s)
+  $
+]
+
+Let us look at a very simple childhood game *Rock-Paper-Scissors*.
+
+== Rock-Paper-Scissors
+
+Here, the players are two individuals, $P_1$ and $P_2$, who simultaneously choose one of three options: Rock, Paper, or Scissors. The payoff matrix is:
+#align(center)[
+  #table(
+    align: center,
+    columns: 5,
+    table.cell(stroke: none, []), table.cell(colspan: 4, $P_2$),
+    table.cell(rowspan: 4, align: center + horizon, [$P_1$]),
+    [],
+    [Rock],
+    [Paper],
+    [Scissors],
+    [Rock], [$(0, 0)$], [$( -1, 1)$], [$(1, -1)$],
+    [Paper], [$(1, -1)$], [$(0, 0)$], [$( -1, 1)$],
+    [Scissors], [$( -1, 1)$], [$(1, -1)$], [$(0, 0)$],
+  )
+]
+
+Well clearly, there are *no pure strategy Nash equilibria* in this game because for any pure strategy chosen by one player, the other player has a best response that beats it. For example, if $P_1$ chooses Rock, $P_2$ can choose Paper to win. If $P_1$ chooses Paper, $P_2$ can choose Scissors to win. If $P_1$ chooses Scissors, $P_2$ can choose Rock to win. Thus, there is *no stable outcome* where both players are choosing a pure strategy.
+
+Now, let us say $sigma_2 = (p_"R", p_"P", p_"S")$, the expected payoffs for player $P_1$ when choosing Rock, Paper, and Scissors are:
+$
+  U_1 (R, sigma_2) & = 0 p_"R" + (-1) p_"P" + 1 p_"S" \
+  U_1 (P, sigma_2) & = 1 p_"R" + 0 p_"P" + (-1) p_"S" \
+  U_1 (S, sigma_2) & = (-1) p_"R" + 1 p_"P" + 0 p_"S"
+$
+In equilibrium, $U_1 (R) = U_1 (P) = U_1 (S) => p_"R" = p_"P" = p_"S" = 1/3$.
