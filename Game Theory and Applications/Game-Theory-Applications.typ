@@ -421,6 +421,7 @@ To find the best responses, we can analyse the payoff matrix for each player:
     - $"BR"_W (B) = B$
 ]
 Thus, the best response for each player depends on the other player's choice. If one player chooses Football, the best response for the other is to also choose Football. If one player chooses Ballet, the best response for the other is to also choose Ballet. This leads to two pure strategy Nash equilibria: $("Football", "Football")$ and $("Ballet", "Ballet")$.
+
 === Pareto Optimality
 Now, we look at each outcome one by one and check if it is Pareto optimal:
 - $("Football", "Football")$: This outcome is Pareto optimal because neither player can improve their payoff without making the other worse off.
@@ -429,3 +430,83 @@ Now, we look at each outcome one by one and check if it is Pareto optimal:
 Thus, the Pareto Optimal outcomes are ${("Football", "Football"), ("Ballet", "Ballet")}$.
 
 This game illustrates the concept of *coordination games* with conflicting preferences, where players must coordinate their strategies to achieve a mutually beneficial outcome.
+
+== Tragedy of the Commons
+
+A village has a common pasture that can support a limited number of cows. Each villager can choose to graze their cows on the common pasture or keep them in their private fields.
+
+#exam[Game of Tragedy of the Commons][
+  In this game, we will consider only two villagers, $V_1$ and $V_2$. The strategies are to put effort ${e_1, e_2}$ and the payoff structure will be discussed below. The rule is that the common pasture can only support a certain amount of grazing, and if both villagers overgraze, the pasture will be destroyed, leading to a loss for both.
+]
+
+Now, the payoff of any villager depends on their own effort and the resource value,
+$
+  u_1 (e_1, e_2) & = e_1 [1 - (e_1 + e_2)] \
+  u_2 (e_2, e_1) & = e_2 [1 - (e_2 + e_1)]
+$
+This is the interesting part of the game, we don't have a matrix representation here because the strategies are continuous, they can choose any level of effort between 0 and 1. The payoff functions reflect the fact that as more effort is put into grazing, the resource value decreases, leading to a potential tragedy if both villagers overgraze.
+
+The question now is to find the Nash equilibrium of this game. To do that, we need to find the best response functions for both villagers and then find the point where they intersect. This will give us the level of effort that each villager will choose in equilibrium, which may lead to overgrazing and a suboptimal outcome for both.
+
+For maxima,
+$
+  dv(u_1, e_1) & = 1 - 2 e_1^* - e_2 = 0 => e_1 = "BR"_1 (e_2) = (1 - e_2)/2 \
+  dv(u_2, e_2) & = 1 - 2 e_2^* - e_1 = 0 => e_2 = "BR"_2 (e_1) = (1 - e_1)/2 \
+$
+
+We know, that the Nash equilibrium is the point where the best response functions intersect, so we can set them equal to each other and solve for $e_1$ and $e_2$:
+$
+  therefore e_1^* = e_2^* = 1/3 => u_i (1/3, 1/3) = 1/9
+$
+
+However, it seems that if the villagers could coordinate and agree to put in less effort, they could achieve a better outcome. For example, if both villagers agreed to put in an effort of 1/4, they would each receive a payoff of 3/16, which is higher than the payoff at the Nash equilibrium. This illustrates the tragedy of the commons, where individual rationality leads to a collectively suboptimal outcome.
+
+=== Cooperation and Communication
+
+Let us consider that the villagers choose to maximize their joint payoff instead of their individual payoffs. In this case, they would choose the level of effort that maximizes the sum of their payoffs:
+$
+  u_T & = u_1 + u_2 \
+  & = e_1 [1 - (e_1 + e_2)] + e_2 [1 - (e_2 + e_1)] \
+  & = (e_1 + e_2) [1 - (e_1 + e_2)]
+  => dv(u_T, e_1) &= 1 - 2 (e_1 + e_2) = 0 => e_1 + e_2 = 1/2
+$
+Thus, if the villagers could coordinate and agree to put in a total effort of 1/2#footnote[Or we assume they put in the same effort of $1/4$], they would each receive a payoff of 1/8, which is higher than the payoff at the Nash equilibrium. This shows that cooperation and communication can lead to better outcomes in games like the tragedy of the commons. But the problem is that without enforceable agreements, there is always an *incentive for each villager to deviate* and put in more effort to increase their own payoff, which can lead to the tragedy of the commons.
+
+#exam[Proving Deviation is Better][
+  Now, say that they agree to $(1/4, 1/4)$, but then $V_1$ uses the best response function to find that if $V_2$ puts in an effort of $1/4$, then $V_1$ can choose,
+  $ e_1 = "BR"_1 (1/4) = (1 - 1/4)/2 = 3/8 $
+  At which the payoff for $V_1$ would be,
+  $
+    u_1 (3/8, 1/4) = 3/8 [1 - (3/8 + 1/4)] = 3/8 [1 - 5/8] = 3/8 [3/8] = 9/64 > 1/8
+  $
+  And thus, seeing this $V_2$ would also want to deviate and put in more effort, leading to a worse outcome for both villagers. This illustrates the difficulty of sustaining cooperation in games like the tragedy of the commons, where individual incentives can lead to collective failure.
+]
+
+=== Iterated Strict Dominance
+
+Now, this is pretty trivial, we restrict the range of $e_1$ which restricts the range of $e_2$ and so on, until we are left with only one strategy profile, which is the Nash equilibrium.
+
+Initially, $e_i in [0, 1]$, now the iterations are as follows:
+$ [0, 1/2] -> [1/4, 1/2] -> [1/4, 3/8] -> dots -> 1/3 $
+
+== Cournot Duopoly
+
+There are two firms, $F_1$ and $F_2$, that produce a homogeneous product. Each firm chooses the quantity of output to produce, and the price of the product is determined by the total quantity produced by both firms. The payoffs for each firm depend on their own output and the output of the other firm.
+
+#exam[Game of Cournot Duopoly][
+  In this game, the players are the firms $F_1$ and $F_2$, the strategies are the quantities of output ${q_1, q_2}$, and the payoffs are determined by the market price and production costs. The rule is that both firms choose their output levels simultaneously without knowledge of the other firm's choice.
+]
+
+Say the firms produce $q_1$ and $q_2$ units of output, and the market price#footnote[I kinda had a nice thought that maybe the equations comes from the differential equation $pdv(P, q_i) = -b$] is given by $P = a - b (q_1 + q_2)$, where $a$ and $b$ are positive constants. The cost of production for each firm is given by $C_i = c q_i$, where $c$ is the marginal cost. The payoff for each firm can be expressed as:
+$
+  u_1 (q_1, q_2) = q_1 (a - c - b (q_1 + q_2)) \
+  u_2 (q_2, q_1) = q_2 (a - c - b (q_1 + q_2))
+$
+Finding the Nash equilibria is similar to _Tragedy of Commons_ and easy,
+$
+  (q_1^*, q_2^*) = ((a-c)/(3 b), (a-c)/(3 b)) => u_i (q_i^*, q_(-i)^*) = (a-c)^2 / (9 b)
+$
+
+Honestly, this is pretty *uninteresting*, at $a = b = 1$ and $c = 1$, we get the exact same scenario as the tragedy of the commons, where both firms produce $1/3$ of the output and get a payoff of $1/9$. This illustrates how competition can lead to suboptimal outcomes for firms in a duopoly, similar to how individual incentives can lead to the tragedy of the commons.
+
+Also, I won't be a _little bitch_ and calculate everything for this again.
