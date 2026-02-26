@@ -646,3 +646,67 @@ $
 $
 
 Thus, $y = attach(F, bl: 1, br: 1) (alpha; gamma; x)$ is the solution to $x dv(y, x, 2) + (gamma - x) dv(y, x) - alpha y = 0$.
+
+== Integral Representation
+
+#example[Integral Representation][
+  Show that,
+  $
+    attach(F, bl: 1, br: 1) (alpha; gamma; x) = (Gamma (gamma)) / (Gamma (alpha) Gamma (gamma - alpha)) integral_0^1 t^(alpha - 1) (1 - t)^(gamma - alpha - 1) e^(x t) dd(t)
+  $
+]
+
+== Differentiation
+
+#example[Derivative][
+  Show that,
+  $
+    dv(, x, n) attach(F, bl: 1, br: 1) (alpha; gamma; x) = (alpha)_n / (gamma)_n attach(F, bl: 1, br: 1) (alpha + n; gamma + n; x)
+  $
+]
+
+#example[
+  Show that,
+  $
+    (alpha - beta) attach(F, bl: 2, br: 1) (alpha, beta; gamma; x) = alpha attach(F, bl: 2, br: 1) (alpha + 1, beta; gamma; x) - beta attach(F, bl: 2, br: 1) (alpha, beta + 1; gamma; x)
+  $
+]
+
+#example[Laplace Transform][
+  Show that,
+  $
+    integral e^(-s x) attach(F, bl: 1, br: 1) (alpha; gamma; x) dd(x) = s^(-1) attach(F, bl: 2, br: 1) (alpha, 1; gamma; 1/s))
+  $
+]
+
+#example[
+  Show that,
+  $
+    (1 + x/2) e^x & = attach(F, bl: 1, br: 1) (alpha + 1; alpha; x) \
+          e^x - 1 & = x attach(F, bl: 1, br: 1) (1; 2; x) \
+  $
+]
+
+#example[
+  Show that,
+  $
+    2/pi integral_0^(pi / 2) dd(theta) / (sqrt(1- x^2 sin^2 theta)) &= attach(F, bl: 2, br: 1) (1/2, 1/2; 1; x^2) \
+    2/pi integral_0^(pi / 2) sqrt(1- x^2 sin^2 theta) dd(theta) &= attach(F, bl: 2, br: 1) (-1/2, 1/2; 1; x^2)
+  $
+]
+
+#example[
+  Show that,
+  $
+    attach(F, bl: 2, br: 1) (alpha, beta; gamma; 1/2) = 2^alpha attach(F, bl: 2, br: 1) (alpha, gamma - beta; gamma; -1)
+  $
+]
+
+= Hermite Polynomials
+
+$
+  dv(y, x, 2) - 2 x dv(y, x) + 2 lambda y = 0
+$
+is called the *Hermite Differential Equation*.
+
+== Series Solution of Hermite's Differential Equation
