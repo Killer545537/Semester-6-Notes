@@ -302,3 +302,28 @@ $ product F_i (x, y, c) = 0 $
 Now, that may not be possible. But it may be possible to solve for $x$ instead. This is pretty trivial as well, but here it is anyway. We write $dv(x, y) = p$ and then solve for $x$ to get something like,
 $ x = f(y, p) => 1/p = phi(y, p dv(p, y)) $
 Using this and the original equation to eliminate $p$, we get $g(x, y, c) = 0$ which again may not be possible and the final solution will be of the form, $x = f_1 (p, c) and y = f_2(p, c)$.
+
+Again, solving for $x$ may not be possible but solving for $y$ may be possible. We write $dv(x, y) = p$ and then solve for $y$ to get something like,
+$ y = f(x, p) => 1/p = phi(x, p dv(p, x)) $
+Using this and the original equation to eliminate $p$, we get $g(x, y, c) = 0$ which again may not be possible and the final solution will be of the form, $x = f_1 (p, c) and y = f_2(p, c)$.
+
+The questions for all these are pretty shit and you just need to work hard for these, so being a *good boy*, I won't solve them here.
+
+= Lagrange and Clairaut Equations
+
+== Lagrange's Equation
+
+The general form of Lagrange's Equation is given by,
+$ y = x F(p) + f(p) quad "where" F'(p) = f(p) $
+Differentiating w.r.t. $x$, we get,
+$
+  dv(y, x) = p = F(p) + [x F'(p) + f'(p)] dv(p, x)
+$
+We can now, solve for $p$ and do the same thing we did before.
+
+== Clairaut's Equation
+
+The general form of Clairaut's Equation is given by,
+$ y = x p + f(p) $
+The general solution is given by#footnote[Differentiate w.r.t. $x$ and we get the answer],
+$ y = c x + f(c) $
