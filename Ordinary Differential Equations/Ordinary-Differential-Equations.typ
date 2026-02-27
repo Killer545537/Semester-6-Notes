@@ -327,3 +327,4 @@ The general form of Clairaut's Equation is given by,
 $ y = x p + f(p) $
 The general solution is given by#footnote[Differentiate w.r.t. $x$ and we get the answer],
 $ y = c x + f(c) $
+Well, some equations may not seem like they are in Clairaut's Form, but they realllllyyy are if you manipulate#footnote[The same way she manipulates me] them well.
