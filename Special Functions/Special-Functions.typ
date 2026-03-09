@@ -710,3 +710,26 @@ $
 is called the *Hermite Differential Equation*.
 
 == Series Solution of Hermite's Differential Equation
+
+== Generating Function
+
+#example[Generating Function][
+    Show that,
+    $
+        e^(2 t x - t^2) = sum_(n = 0)^infinity H_n (x) t^n / n!
+    $
+]
+
+#example[
+    Show that,
+    $
+        H_n (x) = 2^n exp(-1/4 dv(, x, 2)) x^n
+    $
+]
+
+#example[
+    Show that,
+    $
+        H_n (x) = (-1)^n e^(x^2) dv(, x, n)e^(-x^2)
+    $
+]
