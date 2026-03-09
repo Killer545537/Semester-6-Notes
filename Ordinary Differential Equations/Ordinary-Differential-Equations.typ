@@ -309,6 +309,28 @@ Using this and the original equation to eliminate $p$, we get $g(x, y, c) = 0$ w
 
 The questions for all these are pretty shit and you just need to work hard for these, so being a *good boy*, I won't solve them here.
 
+== Singular Solutions
+
+#definition[Singular Solutions][
+    Let $phi (x, y, c) = 0$ be the family of curves which represents the general solution of $f(x, y, p) = 0$. If $phi$ has an envelope then, the equation of the envelope is called the singular solution.
+]
+#definition[Envelope][
+    An envelope of a family of curves is a curve that is tangent to each member of the family at some point.
+]
+
+
+#columns(2)[
+    === Method of c-Discriminant
+
+    We eliminate $c$ from the system of equations $phi(x, y, c) = 0$ and $pdv(phi, c) = 0$.
+
+    #colbreak()
+
+    === Method of p-Discriminant
+
+    We eliminate $p$ from the system of equations $f(x, y, p) = 0$ and $pdv(f, p) = 0$.
+]
+
 = Lagrange and Clairaut Equations
 
 == Lagrange's Equation
