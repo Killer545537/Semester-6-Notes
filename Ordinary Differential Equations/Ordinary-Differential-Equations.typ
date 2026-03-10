@@ -350,3 +350,19 @@ $ y = x p + f(p) $
 The general solution is given by#footnote[Differentiate w.r.t. $x$ and we get the answer],
 $ y = c x + f(c) $
 Well, some equations may not seem like they are in Clairaut's Form, but they realllllyyy are if you manipulate#footnote[The same way she manipulates me] them well.
+
+= Higher Order Differential Equations
+
+An equation of the form,
+$
+    sum a_i (x) dv(y, x, i) + a_0(x) y = f(x) quad a_0 != 0 and a_i "are continuous on" I
+$
+is called a higher order differential equation. The order of the equation is the highest order of the derivative present in the equation.
+
+It is called homogeneous if $f(x) = 0$ and non-homogeneous if $f(x) != 0$.
+
+Now, if $a_i$ are constants, we can use the characteristic equation to find the solution, which is easy and the solution is of the form,
+$
+    y = "C.F." + "P.I." = y_c + y_p
+$
+The hard part is figuring out the particular integral which has a few forms and conditions which can be easily#footnote[Not yet derived but sure] derived.
