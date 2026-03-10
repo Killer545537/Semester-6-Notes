@@ -733,3 +733,13 @@ is called the *Hermite Differential Equation*.
         H_n (x) = (-1)^n e^(x^2) dv(, x, n)e^(-x^2)
     $
 ]
+
+#example[Recurrence Relations][
+    Show that,
+    $
+        H_n ' &= 2 n H_(n - 1) \
+        2 x H_n &= H_(n + 1) + 2 n H_(n - 1) \
+        H_n ' = 2 x H_n - H_(n + 1) \
+        H_n '' = 2 x H_n ' - 2 n H_n \
+    $
+]
