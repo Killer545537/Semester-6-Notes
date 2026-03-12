@@ -366,3 +366,20 @@ $
     y = "C.F." + "P.I." = y_c + y_p
 $
 The hard part is figuring out the particular integral which has a few forms and conditions which can be easily#footnote[Not yet derived but sure] derived.
+
+== Cauchy-Euler Equation
+
+It is a homogeneous linear differential equation of the form,
+$
+    sum a_i x^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
+$
+The solution is trivial once we see the transformation, $ln x = e^z$ which leads to,
+$
+    x^n dv(y, x, n) = D (D - 1) (D - 2) dots (D - n + 1) y quad D = dv(, z)
+$
+
+A very similar equation is,
+$
+    sum a_i (a x + b)^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
+$
+Which can be converted to the previous form.
