@@ -734,6 +734,8 @@ is called the *Hermite Differential Equation*.
     $
 ]
 
+== Recurrence Relations
+
 #example[Recurrence Relations][
     Show that,
     $
@@ -741,5 +743,29 @@ is called the *Hermite Differential Equation*.
         2 x H_n &= H_(n + 1) + 2 n H_(n - 1) \
         H_n ' = 2 x H_n - H_(n + 1) \
         H_n '' = 2 x H_n ' - 2 n H_n \
+    $
+]
+
+== Orthogonality Properties
+
+#example[
+    Show that,
+    $
+        integral_(-infinity)^infinity e^(-x^2) H_m (x) H_n (x) dd(x) = 2^n n! sqrt(pi) delta_(m, n)
+    $
+]
+
+#example[
+    Show that,
+    $
+        H_(2 n) (0) &= (-1)^n (2 n)! / n! \
+        H_(2 n + 1) (0) &= 0 \
+    $
+]
+
+#example[Derivative][
+    Show that,
+    $
+        dv(, x, m) H_n (x) = 2^m (n)_m H_(n - m) (x)
     $
 ]
