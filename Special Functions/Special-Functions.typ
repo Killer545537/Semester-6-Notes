@@ -711,6 +711,18 @@ is called the *Hermite Differential Equation*.
 
 == Series Solution of Hermite's Differential Equation
 
+Assume the solution is of the form, $ y = sum_(k = 0)^infinity a_k x^k quad a_0 != 0 $
+Substituting in the equation and adjusting the indices, we get,
+$
+    sum_(k = 0) [(k + 2) (k + 1) a_(k + 2) - 2 (k - lambda) a_k] x^k = 0
+$
+
+Thus, we get the recurrence relation, $ a_(k + 2) = (2 (k - lambda) a_k) / ((k + 2) (k + 1)) $
+Now, equating the coefficient of $x^k$ and $x^(k + 1)$, we get two conditions, combining them we get,
+$
+    H_n (x) = sum_(k = 0)^(floor(n/2)) (-1)^k n! / (k! (n - 2 k)!) (2 x)^(n - 2 k)
+$
+
 == Generating Function
 
 #example[Generating Function][
