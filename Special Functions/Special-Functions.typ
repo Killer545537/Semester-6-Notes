@@ -781,3 +781,56 @@ $
         dv(, x, m) H_n (x) = 2^m (n)_m H_(n - m) (x)
     $
 ]
+
+= Laguerre Polynomials
+
+$
+    x dv(y, x, 2) + (1 - x) dv(y, x) + lambda y = 0
+$
+is called the *Laguerre Differential Equation*.
+
+== Series Solution
+
+== Other Form
+
+#example[
+    Show that,
+    $
+        L_n (x) = e^x / n! dv(, x, n) (x^n e^(-x))
+    $
+]
+
+== Generating Function
+
+#example[Generating Function][
+    Show that,
+    $
+        e^((-x t) / (1 - t)) / (1 - t) = sum_(n = 0)^infinity L_n (x) t^n
+    $
+]
+
+#example[Special Value][
+    Show that,
+    $
+        L_n (0) &= 1 \
+        L_n ' (0) &= -n
+    $
+]
+
+== Orthogonality Properties
+
+#example[
+    Show that,
+    $
+        integral_0^infinity e^(-x) L_m (x) L_n (x) dd(x) = delta_(m, n)
+    $
+]
+
+== Recurrence Relations
+
+#example[Recurrence Relations][
+    Show that,
+    $
+        (n + 1) L_(n + 1) (x) = (2 n + 1 - x) L_n (x) - n L_(n - 1) (x)
+    $
+]
