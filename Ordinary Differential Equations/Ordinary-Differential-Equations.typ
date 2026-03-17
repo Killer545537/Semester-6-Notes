@@ -378,8 +378,37 @@ $
     x^n dv(y, x, n) = D (D - 1) (D - 2) dots (D - n + 1) y quad D = dv(, z)
 $
 
-A very similar equation is,
+A very similar equation#footnote[This type is called Legendre Linear Differential Equation] is,
 $
     sum a_i (a x + b)^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
 $
 Which can be converted to the previous form.
+
+== Variation of Parameters
+
+The key concept here is to assume that the particular solution of $dv(y, x, 2) + P dv(y, x) + Q y = R$ is of the form,
+$
+    y = A u + B v + dots quad "for higher order equations"
+$
+where $u$ and $v$ are the solutions of the homogeneous part of the equation. We can then find $A$ and $B$ by substituting this form into the non-homogeneous equation and solving for $A$ and $B$. However, the constraint,
+$
+    A' u + B' v + dots = 0
+$
+is what assures sanity of the solution and makes the calculations easier. We can now solve for $A$ and $B$ which come out to be,
+#columns(2)[
+    $
+        A = - integral ((v R) / W) dd(x)
+    $
+    #colbreak()
+    $
+        B = integral ((u R) / W) dd(x)
+    $
+]
+
+== Method of Reduction of Order
+
+Let $u$ be a given solution to $a_0 dv(y, x, 2) + a_1 dv(y, x) + a_2 y = 0$ where $a_i$ is a function of $x$ and $a_0 eq.triple.not 0$. Say $v = A u$ is another solution of the same equation, then, substituting this in the equation and simplifying, we get,
+$
+    w' / w = - ((2 u') / u + a_1 / a_0) quad w = A'
+$
+which can be easily solved to get $A$ and thus $v$.
