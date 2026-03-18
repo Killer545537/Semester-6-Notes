@@ -405,6 +405,20 @@ is what assures sanity of the solution and makes the calculations easier. We can
     $
 ]
 
+We would be pretty smart to assume symmetry and guess the type for the third order and higher order equations as well but that's actually worse.
+
+If the particular solution is of the form $y = f u_1 + g u_2 + h u_3$, then, we have the constraints,
+$
+    f' u_1 + g' u_2 + h' u_3 &= 0 \
+    f' u_1 ' + g' u_2 ' + h' u_3 ' &= 0
+$
+which again assures sanity of the solution and makes the calculations easier and the functions are given by,
+$
+    dv(f, x) &= S / W W(u_2, u_3) \
+    dv(g, x) &= S / W W(u_3, u_1) \
+    dv(h, x) &= S / W W(u_1, u_2)
+$
+
 == Method of Reduction of Order
 
 Let $u$ be a given solution to $a_0 dv(y, x, 2) + a_1 dv(y, x) + a_2 y = 0$ where $a_i$ is a function of $x$ and $a_0 eq.triple.not 0$. Say $v = A u$ is another solution of the same equation, then, substituting this in the equation and simplifying, we get,
@@ -412,3 +426,5 @@ $
     w' / w = - ((2 u') / u + a_1 / a_0) quad w = A'
 $
 which can be easily solved to get $A$ and thus $v$.
+
+Even if we are not given the first solution, we can guess it to be $e^x$, $e^(-x)$ or $x$ which result in some neat constraints on the coefficients of the equation and then we can use the method of reduction of order to find the second solution.
