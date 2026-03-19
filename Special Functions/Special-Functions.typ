@@ -831,6 +831,8 @@ is called the *Laguerre Differential Equation*.
 #example[Recurrence Relations][
     Show that,
     $
-        (n + 1) L_(n + 1) (x) = (2 n + 1 - x) L_n (x) - n L_(n - 1) (x)
+        (n + 1) L_(n + 1) (x) &= (2 n + 1 - x) L_n (x) - n L_(n - 1) (x) \
+            x L_n ' (x) &= n L_n (x) - n L_(n - 1) (x) \
+            L_n ' (x) &= - sum_(r = 0)^(n - 1) L_r (x)
     $
 ]
