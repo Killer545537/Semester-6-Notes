@@ -428,3 +428,16 @@ $
 which can be easily solved to get $A$ and thus $v$.
 
 Even if we are not given the first solution, we can guess it to be $e^x$, $e^(-x)$ or $x$ which result in some neat constraints on the coefficients of the equation and then we can use the method of reduction of order to find the second solution.
+
+== Normal Form
+
+We will reduce a differential equation of the form $y'' + P y' + Q y = R$ to normal form,
+$
+    dv(v, x, 2) + I v = S
+$
+We assume the complete solution to be of the form $y = v u$ and then we find $u$ such that the coefficient of $dv(v, x)$ is zero. This gives us,
+$
+    u &= e^(- integral (P / 2) dd(x)) \
+    I &= Q - (P^2 / 4) - (P' / 2) \
+    S &= R / u
+$
