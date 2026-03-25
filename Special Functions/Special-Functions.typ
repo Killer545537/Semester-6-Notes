@@ -836,3 +836,20 @@ is called the *Laguerre Differential Equation*.
             L_n ' (x) &= - sum_(r = 0)^(n - 1) L_r (x)
     $
 ]
+
+= Chebyshev Polynomials
+
+$
+    (1 - x^2) dv(y, x, 2) - x dv(y, x) + n^2 y = 0
+$
+is called the *Chebyshev Differential Equation*.
+
+The solutions#footnote[This can be solved using *Transformation by Change of Independent Variable* in ODE] are given by,
+$
+    T_n (x) & = cos(n cos^(-1) x) \
+    U_n (x) & = sin(n cos^(-1) x) = U_(n + 1) / sqrt(1 - x^2)
+$
+
+#example[Independence][
+    Show that $T_n$ and $U_n$ are linearly independent.
+]
