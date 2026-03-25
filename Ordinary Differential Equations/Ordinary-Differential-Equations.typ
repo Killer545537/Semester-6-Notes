@@ -367,6 +367,8 @@ $
 $
 The hard part is figuring out the particular integral which has a few forms and conditions which can be easily#footnote[Not yet derived but sure] derived.
 
+= Linear Differential Equations with Variable Coefficients
+
 == Cauchy-Euler Equation
 
 It is a homogeneous linear differential equation of the form,
@@ -383,6 +385,8 @@ $
     sum a_i (a x + b)^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
 $
 Which can be converted to the previous form.
+
+= Reduction of Order and Normal Forms
 
 == Variation of Parameters
 
@@ -429,7 +433,7 @@ which can be easily solved to get $A$ and thus $v$.
 
 Even if we are not given the first solution, we can guess it to be $e^x$, $e^(-x)$ or $x$ which result in some neat constraints on the coefficients of the equation and then we can use the method of reduction of order to find the second solution.
 
-== Normal Form
+== Reduction to Normal Form
 
 We will reduce a differential equation of the form $y'' + P y' + Q y = R$ to normal form,
 $
@@ -441,3 +445,29 @@ $
     I &= Q - (P^2 / 4) - (P' / 2) \
     S &= R / u
 $
+
+== Transformation by Change of Independent Variable
+
+The core idea here is to transform a differential equation of the form $dv(y, x, 2) + P dv(y, x) + Q y = R$, where $P$, $Q$ and $R$ are functions of $x$, to a differential equation of the form $dv(y, z, 2) + P_1 dv(y, z) + Q_1 y = R_1$ where $Q_1$ is a constant which can make $P_1$ into something easier to solve as well. We can do this by substituting $z = f(x)$ and then using the chain rule to find the derivatives of $y$ with respect to $z$. This gives us,
+$
+    P_1 &= (dv(z, x, 2) + P dv(z, x)) / (dv(z, x))^2 \
+    Q_1 &= Q / (dv(z, x))^2 \
+    R_1 &= R / (dv(z, x))^2
+$
+Now, we need to choose $z$ such that#footnote[Mostly we choose $k = 1$],
+$
+    (dv(z, x))^2 = k Q quad "where" k in bb(R)
+$
+
+= Simultaneous Differential Equations
+
+== Simultaneous linear differential equations
+
+Say $x$ and $y$ are dependent variables and $t$ is the independent variable, then, a system of simultaneous linear differential equations can be written as,
+$
+    f_1 (D) x + g_1 (D)y &= T_1 \
+    f_2 (D) x + g_2 (D)y &= T_2
+$
+where $D = dv(, t)$. This can be solved easily by eliminating one of the variables and then solving the resulting equation.
+
+Another way is to create a second order equation in one of the variables and then solving it using the methods we have already learned.
