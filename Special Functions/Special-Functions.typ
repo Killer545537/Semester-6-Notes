@@ -850,6 +850,18 @@ $
     U_n (x) & = sin(n cos^(-1) x) = U_(n + 1) / sqrt(1 - x^2)
 $
 
+== Independence of $T_n$ and $U_n$
+
 #example[Independence][
     Show that $T_n$ and $U_n$ are linearly independent.
+]
+
+== Explicit Form
+
+#example[
+    Show that,
+    $
+        T_n (x) &= sum_(r = 0)^(floor(n/2)) (-1)^r n! / ((2 r)! (n - 2 r)!) (1-x^2)^r (x)^(n - 2 r) \
+        U_n (x) &= sum_(r = 0)^(floor((n-1)/2)) (-1)^r n! / ((2 r + 1)! (n - 2 r - 1)!) (1-x^2)^(r + 1/2) (x)^(n - 2 r - 1) \
+    $
 ]
