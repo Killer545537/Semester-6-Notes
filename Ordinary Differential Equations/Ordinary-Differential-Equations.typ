@@ -206,11 +206,11 @@ There are three types of solutions to differential equations:
 ]
 #proof[Abel's Formula][
   $
-    W(y_1, y_2) &= y_1 y_2 ' - y_1 ' y_2 \
-    => W' &= y_1 y_2 '' - y_1 '' y_2 \
-    &= -P W quad ("Putting the solutions in the equation") \
-    => integral_(x_0)^x W'/W dd(x) &= integral_(x_0)^x -P dd(x) \
-    therefore W(y_1, y_2)(x) &= exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
+                       W(y_1, y_2) & = y_1 y_2 ' - y_1 ' y_2 \
+                             => W' & = y_1 y_2 '' - y_1 '' y_2 \
+                                   & = -P W quad ("Putting the solutions in the equation") \
+    => integral_(x_0)^x W'/W dd(x) & = integral_(x_0)^x -P dd(x) \
+          therefore W(y_1, y_2)(x) & = exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
   $
 ]
 
@@ -312,23 +312,23 @@ The questions for all these are pretty shit and you just need to work hard for t
 == Singular Solutions
 
 #definition[Singular Solutions][
-    Let $phi (x, y, c) = 0$ be the family of curves which represents the general solution of $f(x, y, p) = 0$. If $phi$ has an envelope then, the equation of the envelope is called the singular solution.
+  Let $phi (x, y, c) = 0$ be the family of curves which represents the general solution of $f(x, y, p) = 0$. If $phi$ has an envelope then, the equation of the envelope is called the singular solution.
 ]
 #definition[Envelope][
-    An envelope of a family of curves is a curve that is tangent to each member of the family at some point.
+  An envelope of a family of curves is a curve that is tangent to each member of the family at some point.
 ]
 
 
 #columns(2)[
-    === Method of c-Discriminant
+  === Method of c-Discriminant
 
-    We eliminate $c$ from the system of equations $phi(x, y, c) = 0$ and $pdv(phi, c) = 0$.
+  We eliminate $c$ from the system of equations $phi(x, y, c) = 0$ and $pdv(phi, c) = 0$.
 
-    #colbreak()
+  #colbreak()
 
-    === Method of p-Discriminant
+  === Method of p-Discriminant
 
-    We eliminate $p$ from the system of equations $f(x, y, p) = 0$ and $pdv(f, p) = 0$.
+  We eliminate $p$ from the system of equations $f(x, y, p) = 0$ and $pdv(f, p) = 0$.
 ]
 
 = Lagrange and Clairaut Equations
@@ -355,7 +355,7 @@ Well, some equations may not seem like they are in Clairaut's Form, but they rea
 
 An equation of the form,
 $
-    sum a_i (x) dv(y, x, i) + a_0(x) y = f(x) quad a_0 != 0 and a_i "are continuous on" I
+  sum a_i (x) dv(y, x, i) + a_0(x) y = f(x) quad a_0 != 0 and a_i "are continuous on" I
 $
 is called a higher order differential equation. The order of the equation is the highest order of the derivative present in the equation.
 
@@ -363,7 +363,7 @@ It is called homogeneous if $f(x) = 0$ and non-homogeneous if $f(x) != 0$.
 
 Now, if $a_i$ are constants, we can use the characteristic equation to find the solution, which is easy and the solution is of the form,
 $
-    y = "C.F." + "P.I." = y_c + y_p
+  y = "C.F." + "P.I." = y_c + y_p
 $
 The hard part is figuring out the particular integral which has a few forms and conditions which can be easily#footnote[Not yet derived but sure] derived.
 
@@ -373,16 +373,16 @@ The hard part is figuring out the particular integral which has a few forms and 
 
 It is a homogeneous linear differential equation of the form,
 $
-    sum a_i x^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
+  sum a_i x^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
 $
 The solution is trivial once we see the transformation, $ln x = e^z$ which leads to,
 $
-    x^n dv(y, x, n) = D (D - 1) (D - 2) dots (D - n + 1) y quad D = dv(, z)
+  x^n dv(y, x, n) = D (D - 1) (D - 2) dots (D - n + 1) y quad D = dv(, z)
 $
 
 A very similar equation#footnote[This type is called Legendre Linear Differential Equation] is,
 $
-    sum a_i (a x + b)^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
+  sum a_i (a x + b)^i dv(y, x, i) = X quad a_i in bb(R) and a_n != 0 and X "is a function of" x
 $
 Which can be converted to the previous form.
 
@@ -392,42 +392,42 @@ Which can be converted to the previous form.
 
 The key concept here is to assume that the particular solution of $dv(y, x, 2) + P dv(y, x) + Q y = R$ is of the form,
 $
-    y = A u + B v + dots quad "for higher order equations"
+  y = A u + B v + dots quad "for higher order equations"
 $
 where $u$ and $v$ are the solutions of the homogeneous part of the equation. We can then find $A$ and $B$ by substituting this form into the non-homogeneous equation and solving for $A$ and $B$. However, the constraint,
 $
-    A' u + B' v + dots = 0
+  A' u + B' v + dots = 0
 $
 is what assures sanity of the solution and makes the calculations easier. We can now solve for $A$ and $B$ which come out to be,
 #columns(2)[
-    $
-        A = - integral ((v R) / W) dd(x)
-    $
-    #colbreak()
-    $
-        B = integral ((u R) / W) dd(x)
-    $
+  $
+    A = - integral ((v R) / W) dd(x)
+  $
+  #colbreak()
+  $
+    B = integral ((u R) / W) dd(x)
+  $
 ]
 
 We would be pretty smart to assume symmetry and guess the type for the third order and higher order equations as well but that's actually worse.
 
 If the particular solution is of the form $y = f u_1 + g u_2 + h u_3$, then, we have the constraints,
 $
-    f' u_1 + g' u_2 + h' u_3 &= 0 \
-    f' u_1 ' + g' u_2 ' + h' u_3 ' &= 0
+        f' u_1 + g' u_2 + h' u_3 & = 0 \
+  f' u_1 ' + g' u_2 ' + h' u_3 ' & = 0
 $
 which again assures sanity of the solution and makes the calculations easier and the functions are given by,
 $
-    dv(f, x) &= S / W W(u_2, u_3) \
-    dv(g, x) &= S / W W(u_3, u_1) \
-    dv(h, x) &= S / W W(u_1, u_2)
+  dv(f, x) & = S / W W(u_2, u_3) \
+  dv(g, x) & = S / W W(u_3, u_1) \
+  dv(h, x) & = S / W W(u_1, u_2)
 $
 
 == Method of Reduction of Order
 
 Let $u$ be a given solution to $a_0 dv(y, x, 2) + a_1 dv(y, x) + a_2 y = 0$ where $a_i$ is a function of $x$ and $a_0 eq.triple.not 0$. Say $v = A u$ is another solution of the same equation, then, substituting this in the equation and simplifying, we get,
 $
-    w' / w = - ((2 u') / u + a_1 / a_0) quad w = A'
+  w' / w = - ((2 u') / u + a_1 / a_0) quad w = A'
 $
 which can be easily solved to get $A$ and thus $v$.
 
@@ -437,26 +437,26 @@ Even if we are not given the first solution, we can guess it to be $e^x$, $e^(-x
 
 We will reduce a differential equation of the form $y'' + P y' + Q y = R$ to normal form,
 $
-    dv(v, x, 2) + I v = S
+  dv(v, x, 2) + I v = S
 $
 We assume the complete solution to be of the form $y = v u$ and then we find $u$ such that the coefficient of $dv(v, x)$ is zero. This gives us,
 $
-    u &= e^(- integral (P / 2) dd(x)) \
-    I &= Q - (P^2 / 4) - (P' / 2) \
-    S &= R / u
+  u & = e^(- integral (P / 2) dd(x)) \
+  I & = Q - (P^2 / 4) - (P' / 2) \
+  S & = R / u
 $
 
 == Transformation by Change of Independent Variable
 
 The core idea here is to transform a differential equation of the form $dv(y, x, 2) + P dv(y, x) + Q y = R$, where $P$, $Q$ and $R$ are functions of $x$, to a differential equation of the form $dv(y, z, 2) + P_1 dv(y, z) + Q_1 y = R_1$ where $Q_1$ is a constant which can make $P_1$ into something easier to solve as well. We can do this by substituting $z = f(x)$ and then using the chain rule to find the derivatives of $y$ with respect to $z$. This gives us,
 $
-    P_1 &= (dv(z, x, 2) + P dv(z, x)) / (dv(z, x))^2 \
-    Q_1 &= Q / (dv(z, x))^2 \
-    R_1 &= R / (dv(z, x))^2
+  P_1 & = (dv(z, x, 2) + P dv(z, x)) / (dv(z, x))^2 \
+  Q_1 & = Q / (dv(z, x))^2 \
+  R_1 & = R / (dv(z, x))^2
 $
 Now, we need to choose $z$ such that#footnote[Mostly we choose $k = 1$],
 $
-    (dv(z, x))^2 = k Q quad "where" k in bb(R)
+  (dv(z, x))^2 = k Q quad "where" k in bb(R)
 $
 
 = Simultaneous Differential Equations
@@ -465,9 +465,38 @@ $
 
 Say $x$ and $y$ are dependent variables and $t$ is the independent variable, then, a system of simultaneous linear differential equations can be written as,
 $
-    f_1 (D) x + g_1 (D)y &= T_1 \
-    f_2 (D) x + g_2 (D)y &= T_2
+  f_1 (D) x + g_1 (D)y & = T_1 \
+  f_2 (D) x + g_2 (D)y & = T_2
 $
 where $D = dv(, t)$. This can be solved easily by eliminating one of the variables and then solving the resulting equation.
 
 Another way is to create a second order equation in one of the variables and then solving it using the methods we have already learned.
+
+= Strum Liouville Theory
+
+== Strum Liouville Problem
+
+A differential equation of the form,
+$
+  (r y')' + [q + lambda p] y = 0 quad forall x in [a, b]
+$
+where $r$, $r'$, $p$, $q$ are continuous functions with $p > 0$ defined on $[a, b]$ and $lambda$ is a parameter, is called a Strum Liouville problem. The boundary conditions for this problem can be of the form,
+$
+  a_1 y(a) + a_2 y'(a) = 0 \
+  b_1 y(b) + b_2 y'(b) = 0
+$
+
+$y = 0$ is always a solution of the Strum Liouville problem, which is called the trivial solution. We are interested in finding non-trivial solutions of the problem, which exist only for certain values of $lambda$ called eigenvalues. The corresponding non-trivial solutions are called eigenfunctions.
+
+#theorem[Orthogonality of Eigenfunctions][
+  The eigenfunctions corresponding to distinct eigenvalues of a Strum Liouville problem are orthogonal with respect to the weight function $p$.
+  $
+    integral_a^b p y_m y_n dd(x) = 0 quad "for" lambda_m != lambda_n
+  $
+]
+
+#theorem[
+  The eigenvalues of a Strum Liouville problem are real and can be arranged in an increasing sequence $lambda_1 < lambda_2 < lambda_3 < dots$ with $lambda_n -> infinity$ as $n -> infinity$.
+]
+
+= Initial and Boundary Value Problems
