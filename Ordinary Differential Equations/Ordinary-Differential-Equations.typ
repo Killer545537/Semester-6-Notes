@@ -500,3 +500,47 @@ $y = 0$ is always a solution of the Strum Liouville problem, which is called the
 ]
 
 = Initial and Boundary Value Problems
+
+== Picard's Iteration Method for Initial Value Problems
+
+Consider the initial value problem,
+$
+    dv(y, x) &= f(x, y) \
+  y(x_0) &= y_0
+$
+Picard's iteration method is an iterative method to find the solution of the initial value problem. We start with an initial guess for the solution, say $y_0$, and then we define a sequence of functions ${y_n}_1^infinity$ by,
+$  y_{n + 1} (x) = y_0 + integral_(x_0)^x f(t, y_n (t)) dd(t) $
+Under certain conditions on the function $f$, the sequence ${y_n}_1^infinity$ converges to the unique solution of the initial value problem.
+
+== Lipschitz Continuity
+
+#definition[Lipschitz Continuity][
+  A function $f(x, y)$ is said to be Lipschitz continuous in $y$ on a domain $D$ if there exists a constant $L$ (called the Lipschitz constant) such that,
+  $
+    |f(x, y_1) - f(x, y_2)| <= L |y_1 - y_2| quad forall (x, y_1), (x, y_2) in D
+  $
+]
+
+Lipschitz continuity is a stronger condition than continuity but weaker than differentiability.#footnote[Thus, Lipschitz continuity implies continuity but the converse is not true. Also, differentiability implies Lipschitz continuity but the converse is not true.]
+
+#theorem[
+    A function with a bounded derivative is Lipschitz continuous. However, the converse is not true.
+]
+
+#definition[Lipschitz Continuity With Respect to $y$][
+    A function $f(x, y)$ defined in a region $D subset.eq bb(R) times bb(R)$ is said to satisfy Lipschitz condition with respect to $y$ if there exists a constant $L$ such that,
+$    |f(x, y_1) - f(x, y_2)| <= L |y_1 - y_2| quad forall (x, y_1), (x, y_2) in D $
+]
+
+#theorem[
+    Suppose $S$ be a rectangle ${|x - x_0| <= a, |y - y_0| <= b}$ or a vertical strip ${|x - x_0| <= a}$ and $f$ be a real valued function defined on $S$ such that $pdv(f, y)$ exists, is continuous on $S$ and $|pdv(f, y)| < k med forall (x, y) in S$.
+
+    Then $f$ satisfies Lipschitz condition with respect to $y$ in $S$.
+]
+#proof[
+    $
+        |f(x, y_1) - f(x, y_2)| & = |integral_(y_2)^(y_1) pdv(f, y) dd(y)| \
+                             & <= integral_(y_2)^(y_1) |pdv(f, y)| dd(y) \
+                             & < k |y_1 - y_2|
+    $
+]
