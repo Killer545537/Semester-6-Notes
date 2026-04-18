@@ -544,3 +544,23 @@ $    |f(x, y_1) - f(x, y_2)| <= L |y_1 - y_2| quad forall (x, y_1), (x, y_2) in 
                              & < k |y_1 - y_2|
     $
 ]
+
+== Picard's Existence and Uniqueness Theorem
+
+#theorem[Picard's Existence Theorem][
+    Given an initial value problem,
+    $
+        dv(y, x) & = f(x, y) \
+      y(x_0) & = y_0
+    $
+    where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$.#footnote[This means that $f$ is bounded. There is a famous real analysis result that states "Continuous functions on a closed and bounded interval are bounded". Thus, the continuity of $f$ on $R$ implies that $f$ is bounded on $R$.] Then there exists a solution in $R$.
+]
+
+#theorem[Picard's Uniqueness Theorem][
+    Given an initial value problem,
+    $
+        dv(y, x) & = f(x, y) \
+      y(x_0) & = y_0
+    $
+    where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$ and satisfies Lipschitz condition with respect to $y$ in $R$. Then there exists a unique solution in $abs(x-x_0) < h$, where $h = min(a, b / M)$ is called the maximal interval of existence and $M$ is the bound on $f$ in $R$.
+]
