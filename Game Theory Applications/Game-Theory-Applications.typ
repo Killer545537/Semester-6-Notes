@@ -589,3 +589,81 @@ $
   U_1 (S, sigma_2) & = (-1) p_"R" + 1 p_"P" + 0 p_"S"
 $
 In equilibrium, $U_1 (R) = U_1 (P) = U_1 (S) => p_"R" = p_"P" = p_"S" = 1/3$.
+
+== Battle of the Sexes Revisited
+
+Earlier, we looked at the Battle of the Sexes game in the context of pure strategies, but now we will analyze it using mixed strategies. In the pure strategy version, we found that there were two Nash equilibria: $("Football", "Football")$ and $("Ballet", "Ballet")$. However, in the mixed strategy version, we can find a unique mixed strategy Nash equilibrium where both players randomize over their choices.
+
+Say $sigma_H = (p_"F", p_"B")$ and $sigma_W = (q_"F", q_"B")$, the expected payoffs for the husband and wife when choosing Football and Ballet are:
+$
+  U_H (F, sigma_W) & = 10 q_"F" + 0 q_"B" \
+  U_H (B, sigma_W) & = 0 q_"F" + 5 q_"B" \
+  U_W (F, sigma_H) & = 5 p_"F" + 0 p_"B" \
+  U_W (B, sigma_H) & = 0 p_"F" + 10 p_"B"
+$
+In equilibrium, we have:
+$
+  U_H (F) = U_H (B) => 10 q_"F" = 5 q_"B" => q_"F" = 1/3, q_"B" = 2/3 \
+  U_W (F) = U_W (B) => 5 p_"F" = 10 p_"B" => p_"F" = 2/3, p_"B" = 1/3
+$
+Thus, the mixed strategy Nash equilibrium is $sigma_H^* = (2/3, 1/3)$ and $sigma_W^* = (1/3, 2/3)$, meaning that the husband will choose Football with a probability of 2/3 and Ballet with a probability of 1/3, while the wife will choose Football with a probability of 1/3 and Ballet with a probability of 2/3.
+
+= Auctions as Strategic Games
+
+#definition[Auction][
+    It is a mechanism with
+    - *Players:* bidders and sometimes an auctioneer
+    - *Strategies:* bidding rules
+    - *Payoffs:* $"utility" = "value of the item" - "payment"$ if won else $0$
+    - *Information Structure:* what each bidder knows
+]
+
+In auctions, each bidder must keep in mind what they bid and what the other bidders might bid, as well as the rules of the auction. The strategic interaction between bidders can lead to different outcomes depending on the type of auction and the information available to the bidders.
+
+An auction is an *incomplete information game*.
+
+== Types of Auctions
+
+=== Open vs Sealed-Bid Auctions
+
+An *open auction* is a _dynamic game_ where bids are observable and evolve over time. E.g. American auction where the price starts low and bidders can see each other's bids and choose to bid higher or drop out, Dutch auction where the price starts high and decreases until a bidder accepts the current price.
+
+A *sealed auction* is a _static one-shot simultaneous-move game_ where bids are submitted without knowledge of others' bids. E.g. First-price sealed-bid auction where the highest bidder wins and pays their bid, second-price sealed-bid auction _(Vickrey auction)_ where the highest bidder wins but pays the second-highest bid.
+
+== One-Sided vs Two-Sided Auctions
+
+A *one-sided auction* involves only buyers or only sellers. E.g. a government auctioning off a license to operate a business is a one-sided auction with sellers, while an online marketplace where individuals can bid on items is a one-sided auction with buyers.
+
+A *two-sided auction* involves both buyers and sellers. E.g. a stock exchange where buyers and sellers trade shares is a two-sided auction, as is an online platform that connects buyers and sellers for various goods and services.
+
+== Valuation
+
+#definition[Valuation][
+    A bidder $i$ has a valuation $v_i >= 0$, which reflects how much the item is worth to them personally.
+]
+
+The utility of a bidder is given by:
+$
+    u_i = cases(
+        v_i - p "if bidder wins",
+        0 "if bidder loses"
+    )
+$
+
+=== Private Value
+
+In a *private value* auction, each bidder's valuation of the item is independent of others' valuations. For example, in an art auction, each bidder may have a different personal value for the artwork based on their tastes and preferences.
+
+=== Common Value
+
+In a *common value* auction, the item has the same value for all bidders, but this value is uncertain and bidders have different estimates of it. For example, in an oil drilling rights auction, the actual amount of oil in the ground is the same for all bidders, but each bidder may have a different estimate of how much oil there is based on their own geological surveys.
+
+=== Interdependent Value
+
+In an *interdependent value* auction, each bidder's valuation of the item depends on the valuations of other bidders. For example, in a spectrum auction for telecommunications, the value of a particular frequency band may depend on how many other bidders are interested in it and how much they are willing to pay, as this can affect the potential market share and profitability for the winning bidder.
+
+#exam[Valuation vs Bid][
+    It's important to note that a bidder's valuation of an item is not necessarily the same as the amount they choose to bid. The bid is a strategic decision that takes into account not only the bidder's own valuation but also their beliefs about other bidders' valuations and strategies, as well as the rules of the auction. For example, in a first-price sealed-bid auction, a bidder may choose to bid less than their true valuation to avoid the winner's curse#footnote[The winner's curse occurs when the highest bidder overpays for an item, leading to a loss], while in a second-price sealed-bid auction, it is a dominant strategy for bidders to bid their true valuation.#footnote[We'll look at this later]
+]
+
+== Vickrey Auction as a Strategic Game
