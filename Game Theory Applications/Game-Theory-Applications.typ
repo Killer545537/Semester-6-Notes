@@ -667,3 +667,90 @@ In an *interdependent value* auction, each bidder's valuation of the item depend
 ]
 
 == Vickrey Auction as a Strategic Game
+
+In a Vickrey auction, each bidder submits a sealed bid, and the highest bidder wins but pays the second-highest bid. This creates an interesting strategic environment for bidders.
+
+Let us try to figure out the best strategy for a bidder in a Vickrey auction.
+
+Let us focus on bidder $i$ and the opponents bid $b_(-i)$. Define the maximum bid among the opponents as
+$
+    m := max_(j != i) b_j
+$
+If bidder $i$ bids $b_i$, their payoff can be expressed as#footnote[We assume that each bidder values the item at $v$]:
+$
+    u(b) = cases(
+        v - m "if" b_i > m,
+        0 "if" b_i <= m
+    )
+$
+#theorem[
+    We claim $b = v$ weakly dominates every other bid $b' != v$, i.e.,
+    $
+        forall m quad u(v) >= u(b')
+    $
+    with strict inequality for some $m$.
+]
+#proof[
+    We will consider three cases based on the relationship between $b'$, $v$, and $m$:
+    #columns(3)[
+        *Case 1:* $m < v$
+        For a truthful bid $b = v$, the payoff is,
+        $
+            u(v) = v - m > 0
+        $
+        For an alternative bid $b'$, we have two subcases:
+        - If $b' > m$, then $u(b') = v - m$, which is equal to $u(v)$.
+        - If $b' <= m$, then $u(b') = 0$, which is less than $u(v)$.
+        Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' <= m$.
+
+        #colbreak()
+
+        *Case 2:* $m > v$
+        For a truthful bid $b = v$, the payoff is,
+        $
+            u(v) = 0
+        $
+        For an alternative bid $b'$, we have two subcases:
+        - If $b' > m$, then $u(b') = v - m < 0$, which is less than $u(v)$.
+        - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
+        Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' > m$.
+
+        #colbreak()
+
+        *Case 3:* $m = v$
+        For a truthful bid $b = v$, the payoff is,
+        $
+            u(v) = 0
+        $
+        For an alternative bid $b'$, we have two subcases:
+        - If $b' > m$, then $u(b') = v - m = 0$, which is equal to $u(v)$.
+        - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
+        Thus, in this case, $u(v) >= u(b')$ with equality for all $b'$.
+    ]
+]
+
+= Linear and Network Games
+
+== Linear Market Models
+
+#definition[Linear Market Model][
+    It is a model of a market where the demand and supply functions are linear. The demand function can be expressed as $D(p) = a - b p$ and the supply function can be expressed as $S(p) = c + d p$, where $a$, $b$, $c$, and $d$ are positive constants, and $p$ is the price of the good.
+]
+
+A classical example is the *Cournot duopoly* we discussed earlier, where two firms choose quantities to produce and the price is determined by a linear demand function. Another example is the *Bertrand duopoly*, where two firms choose prices instead of quantities, and the demand is also linear.
+
+== Network Games
+
+#definition[Network Game][
+    It is a game where players are located on the nodes of a network and their payoffs depend on the actions of their neighbors in the network. The strategies of each player can be influenced by the structure of the network and the actions of their neighbors.
+
+    A standard linear network games has the payoff function for player $i$ as:
+    $
+        u_i = a_i x_i - 1/2 x_i^2 + beta sum_(j in N(i)) g_(i j) x_i x_j
+    $
+    where $x_i$ is the strategy of player $i$, $a_i$ is a parameter that captures the intrinsic value of the strategy for player $i$, $beta$ is a parameter that captures the strength of the interaction between players, and $g_(i j)$ is an element of the adjacency matrix of the network, which indicates whether players $i$ and $j$ are neighbors.
+]
+
+#exam[Network Games][
+    We only have *Network Congestion Games* and only *Braess' Paradox* is talked about in the course, so I will just talk about that.
+]
