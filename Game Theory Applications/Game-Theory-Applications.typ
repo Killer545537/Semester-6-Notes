@@ -731,14 +731,6 @@ $
 
 = Linear and Network Games
 
-== Linear Market Models
-
-#definition[Linear Market Model][
-    It is a model of a market where the demand and supply functions are linear. The demand function can be expressed as $D(p) = a - b p$ and the supply function can be expressed as $S(p) = c + d p$, where $a$, $b$, $c$, and $d$ are positive constants, and $p$ is the price of the good.
-]
-
-A classical example is the *Cournot duopoly* we discussed earlier, where two firms choose quantities to produce and the price is determined by a linear demand function. Another example is the *Bertrand duopoly*, where two firms choose prices instead of quantities, and the demand is also linear.
-
 == Network Games
 
 #definition[Network Game][
@@ -754,3 +746,62 @@ A classical example is the *Cournot duopoly* we discussed earlier, where two fir
 #exam[Network Games][
     We only have *Network Congestion Games* and only *Braess' Paradox* is talked about in the course, so I will just talk about that.
 ]
+
+=== Braess' Paradox
+
+Braess' Paradox is a phenomenon in network games where adding an extra link to a transportation network can lead to worse overall traffic congestion. This counterintuitive result occurs because the new link can change the equilibrium of the game in such a way that all drivers end up taking routes that are more congested than before.
+
+Say we have the following network with $4000$ drivers:
+#figure(
+    image("imgs/Img1.jpg", width: 80%)
+)
+Here, the Nash equilibrium is for $2000$ drivers to take the upper route and $2000$ drivers to take the lower route, resulting in a travel time of $45 + 2000/100 = 65$ minutes for each driver.#footnote[Confirm this by assuming one driver deviates and takes the other route, they will have a travel time of $45 + 2001/100 = 65.01$ minutes, which is worse than sticking to the original route]
+
+Now, say we add a path that goes from A to B with a travel time of $0$ minutes. This creates a new route for drivers to take, and the Nash equilibrium changes. Now, all drivers will choose the route Start -> A -> B -> End, which has a travel time of $45 + 4000/100 = 85$ minutes, which is worse than the original equilibrium. This illustrates Braess' Paradox, where adding an extra link to the network can lead to worse overall congestion.
+
+This has had real-world implications, as it has been observed in traffic networks that adding new roads can sometimes lead to increased congestion, and in some cases, removing roads can actually improve traffic flow.
+- Stuggart, Germany: In the 1960s, a new highway was built to alleviate traffic congestion, but it ended up increasing travel times for commuters. The highway was eventually removed, and traffic flow improved.
+- Seoul, South Korea: In the early 2000s, a major highway was removed to create a public park, and traffic congestion in the area decreased significantly.
+
+== Linear Market Models
+
+#definition[Linear Market Model][
+    It is a model of a market where the demand and supply functions are linear. The demand function can be expressed as $D(p) = a - b p$ and the supply function can be expressed as $S(p) = c + d p$, where $a$, $b$, $c$, and $d$ are positive constants, and $p$ is the price of the good.
+]
+
+A classical example is the *Cournot duopoly* we discussed earlier, where two firms choose quantities to produce and the price is determined by a linear demand function. Another example is the *Bertrand duopoly*, where two firms choose prices instead of quantities, and the demand is also linear.
+
+=== Hotelling Problem
+
+The Hotelling problem is a model of spatial competition where two firms choose locations along a line to maximize their market share. The demand for the firms' products is determined by the distance of consumers from the firms, and the firms must strategically choose their locations to attract customers while considering the location of their competitor.
+
+Consider the consumers to be uniformly distributed along a line segment $[0, 1]$ and two firms, $F_1$ and $F_2$, choose locations $x_1$ and $x_2$ along this line. The consumers will buy from the firm that is closest to them, so the market share for each firm can be determined by the location of the firms. The payoff for each firm is proportional to its market share, which depends on the distance of consumers from the firms.
+
+We will study a specific case of the problem, *Ice Cream Vendors*, where the firms are selling ice cream and the consumers are located along a beach. The firms must choose their locations to maximize their market share while considering the location of their competitor.
+Even if both of them start of at the extreme ends of the beach, they have the exact same market share, however, both of them have an incentive to move towards the center of the beach to capture more customers, which leads to a situation where both firms end up in the *middle of the beach*#footnote[This is called the Principle of Minimum Differentiation], resulting in a Nash equilibrium. This illustrates how competition can lead to clustering of firms in the same location, which is a key insight from the Hotelling problem.
+
+This model has been used to analyze various real-world scenarios, such as the location of retail stores, political candidates' positions on issues, and even the distribution of species in ecology. It highlights the importance of strategic decision-making in competitive environments and how firms or individuals may choose to differentiate themselves or cluster together based on the actions of their competitors.
+
+It assumes *Single-Peaked Preferences*, meaning that consumers have a most preferred location and their preference decreases as they move away from that location. This is a key assumption that leads to the clustering outcome in the Hotelling problem.
+
+= Information Structures
+
+Information structures specify what each player knows about the game, including the payoffs, strategies, and types of other players. The information structure can significantly affect the strategies and outcomes of a game. It includes:
+- timing of moves (simultaneous or sequential)
+- observability of actions (perfect or imperfect information)
+- knowledge of payoffs (complete or incomplete information)
+
+== Information Sets
+
+#definition[Information Set][
+    An information set for a player is a collection of decision nodes in the game tree such that the player cannot distinguish between them based on the information available to them at that point in the game. In other words, when a player is at an information set, they do not know which specific node they are at within that set, but they know that they are at one of those nodes.
+]
+If two nodes are in the same information set, the player must choose the *same action* at both. This is because the player cannot distinguish between the nodes in the information set, so they must have a consistent strategy that applies to all nodes in that set.
+
+== Perfect Information
+
+A game has perfect information if every player knows *all previous actions* when making a decision. Thus, every information set is *singleton*.
+
+== Imperfect Information
+
+A game has imperfect information if there exists at least one information set that contains more than one decision node. This means that at least one player does not know all previous actions when making a decision.
