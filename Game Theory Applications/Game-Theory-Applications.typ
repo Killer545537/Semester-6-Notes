@@ -805,3 +805,46 @@ A game has perfect information if every player knows *all previous actions* when
 == Imperfect Information
 
 A game has imperfect information if there exists at least one information set that contains more than one decision node. This means that at least one player does not know all previous actions when making a decision.
+
+= Extensive Form Games
+
+An *extensive form game* is a way to model a strategic interaction where the _timing of moves_, _order of play_, and _information available to players at each step_ are explicitally represented.
+
+#definition[Exetnsive Form Representation][
+    An extensive-form game consists of:
+    - *Players:* a finite set of players $N$.
+    - *Game Tree*
+        - *Nodes:* Decision points
+        - *Edges:* Actions
+        - *Root:* Starting point
+        - *Terminal nodes:* Outcomes
+    - *Player Function:* Assigns each decision node to a player (who moves there)
+    - *Action Sets:* At each node, the available actions
+    - *Information Sets:* For each player, a partition of their decision nodes into information sets
+    - *Payoff Function:* Assigns a payoff to each player for each terminal node
+]
+
+#figure(
+    image("imgs/Img2.jpg", width: 80%)
+)
+
+== Subgame Perfect Equilibrium
+
+It is a refinement of Nash equilibrium for extensive-form games, where the strategy profile constitutes a Nash equilibrium in every subgame of the original game. This concept eliminates non-credible threats and ensures that players' strategies are optimal at every point in the game.
+
+#definition[Subgame][
+    A subgame is a part of the game that can be considered a game in itself, starting from a single decision node and including all its descendants. Formally, a subgame must satisfy the following conditions:
+    - It must start at a single decision node (the root of the subgame).
+    - It must include all the descendants of that node.
+    - It must not cut across any information sets; that is, if a node is included in the subgame, then all nodes in the same information set must also be included.
+]
+
+#exam[Why Nash is not sufficient for extensive-form games?][
+    In dynamic games, a Nash equilibrium can contain *non-credible threats*, like actions that hurt both but obviously won't be taken by a rational player. Nash equilibirum may still accept this because it only check deviations _globally_ not at every decision point.
+]
+
+#exam[Finding Subgame Perfect Equilibrium][
+    To find the subgame perfect equilibrium, we can use *backward induction*. We start from the terminal nodes of the game tree and determine the optimal actions for the players at each decision node, working our way back to the root of the tree. This process ensures that we are considering the optimal strategies for every subgame, leading to a strategy profile that is a Nash equilibrium in every subgame.
+]
+
+Subgame Perfect Equilibrium requires that at every point in the game, players' strategies must be optimal given what follows, thus even *off-equilibrium paths* must be rational.
