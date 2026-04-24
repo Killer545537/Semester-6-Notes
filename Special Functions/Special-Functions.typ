@@ -83,9 +83,9 @@ Some special values of the function are:
 
 To find the derivative of the Lambert W function, we start with the defining equation:
 $
-                            W(x) e^(W(x)) & = x \
+  W(x) e^(W(x)) & = x \
   => W'(x) e^(W(x)) + W(x) e^(W(x)) W'(x) & = 1 quad ("Product Rule") \
-                          therefore W'(x) & = 1/(x + e^(W (x))) = (W(x))/(x (1 + W(x))) \
+  therefore W'(x) & = 1/(x + e^(W (x))) = (W(x))/(x (1 + W(x))) \
 $
 
 In general, the nth derivative of the Lambert W function is given by the Faà di Bruno's formula:
@@ -131,7 +131,7 @@ $erf(x)$ is the probability that $Y tilde cal(N)(0, sqrt(1/2))$ lies in the rang
 
 We can represent the error function in terms of the _lower incomplete gamma function_ which is, $ gamma(s, x) = integral_0^x t^(s - 1) e^(-t) dd(t) $ by making the obvious substitution of $u = t^2$ in the error function. In the end we get,
 $
-     erf(x) & = gamma(1/2, x^2)/Gamma(1/2) quad (Gamma(1/2) = sqrt(pi)) \
+  erf(x) & = gamma(1/2, x^2)/Gamma(1/2) quad (Gamma(1/2) = sqrt(pi)) \
   "erfc"(x) & = Gamma(1/2, x^2)/Gamma(1/2) quad (Gamma(s, x) = integral_x^infinity t^(s - 1) e^(-t) dd(t)) \
 $
 
@@ -238,7 +238,7 @@ It is pretty clear#footnote[Kinda in the name too tho] that, $ usn(n, k) = (-1)^
 #example[Generating Function][
   Prove that,
   $
-      sum_(n = k)^infinity s(n, k) (x^n)/(n!) & = 1/k! ln^k (1 + x) \
+    sum_(n = k)^infinity s(n, k) (x^n)/(n!) & = 1/k! ln^k (1 + x) \
     sum_(n = k)^infinity usn(n, k) (x^n)/(n!) & = 1/k! ln^k (1/(1-t)) quad abs(t) < 1 \
   $
 ]
@@ -372,7 +372,7 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
 
   $
     e^(x/2 (t - 1/t)) & = sum_(k = 0)^infinity 1/k! (x/2)^k (t - 1/t)^k \
-                      & = sum_(k = 0)^infinity 1/k! (x/2)^k sum_(r = 0)^k binom(k, r) (-1)^(k-r) t^(2r - k)
+    & = sum_(k = 0)^infinity 1/k! (x/2)^k sum_(r = 0)^k binom(k, r) (-1)^(k-r) t^(2r - k)
   $
   Now, for a term to contribute to $t^n$, $2r - k = n => r = (k + n)/2 => k + n "must be even"$. From the limits, $ r in [0, k] => 2r - k in [ -k, k ] => -k <= n <= k => k >= |n| $ Using these facts, we can say that the general term for $k$ is $k = n + 2m$ where $m = 0, 1, dots.h$. Thus, the coefficient of $t^n$ is,
   $ sum_(m = 0)^infinity (-1)^m / (m! (n+m)!) (x/2)^(n + 2m) = J_n (x) $
@@ -446,7 +446,7 @@ This is known as Bessel Function of the First Kind of Order $n$.#footnote[In cla
   with solutions $y = J_n (alpha x)$ and $z = J_n (beta x)$. Multiplying the first equation by $z / x$ and the second by $y/x$ and subtracting, we get,
   $
     x [z dv(y, x, 2) - y dv(z, x, 2)] + (z dv(y, x) - y dv(z, x)) + (alpha^2 - beta^2) x y z & = 0 \
-                         => dv(, x) [x (z dv(y, x) - y dv(z, x))] + (alpha^2 - beta^2) x y z & = 0
+    => dv(, x) [x (z dv(y, x) - y dv(z, x))] + (alpha^2 - beta^2) x y z & = 0
   $
   Now, we can integrate and simplyfy to get the desired result.
 ]
@@ -691,7 +691,7 @@ Thus, $y = attach(F, bl: 1, br: 1) (alpha; gamma; x)$ is the solution to $x dv(y
   Show that,
   $
     2/pi integral_0^(pi / 2) dd(theta) / (sqrt(1- x^2 sin^2 theta)) & = attach(F, bl: 2, br: 1) (1/2, 1/2; 1; x^2) \
-        2/pi integral_0^(pi / 2) sqrt(1- x^2 sin^2 theta) dd(theta) & = attach(F, bl: 2, br: 1) (-1/2, 1/2; 1; x^2)
+    2/pi integral_0^(pi / 2) sqrt(1- x^2 sin^2 theta) dd(theta) & = attach(F, bl: 2, br: 1) (-1/2, 1/2; 1; x^2)
   $
 ]
 
@@ -872,7 +872,7 @@ $
   Show that,
   $
     T_0 (x) + 2 sum_(n = 1)^infinity T_n (x) t^n & = (1 - t^2) / (1 - 2 x t + t^2) \
-          sum_(n = 0)^infinity U_(n + 1) (x) t^n & = sqrt(1 - x^2) / (1 - 2 x t + t^2)
+    sum_(n = 0)^infinity U_(n + 1) (x) t^n & = sqrt(1 - x^2) / (1 - 2 x t + t^2)
   $
 ]
 

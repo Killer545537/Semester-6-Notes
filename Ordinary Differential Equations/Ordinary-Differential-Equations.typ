@@ -206,11 +206,11 @@ There are three types of solutions to differential equations:
 ]
 #proof[Abel's Formula][
   $
-                       W(y_1, y_2) & = y_1 y_2 ' - y_1 ' y_2 \
-                             => W' & = y_1 y_2 '' - y_1 '' y_2 \
-                                   & = -P W quad ("Putting the solutions in the equation") \
+    W(y_1, y_2) & = y_1 y_2 ' - y_1 ' y_2 \
+    => W' & = y_1 y_2 '' - y_1 '' y_2 \
+    & = -P W quad ("Putting the solutions in the equation") \
     => integral_(x_0)^x W'/W dd(x) & = integral_(x_0)^x -P dd(x) \
-          therefore W(y_1, y_2)(x) & = exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
+    therefore W(y_1, y_2)(x) & = exp(- integral_(x_0)^x P(x) dd(x)) W(y_1, y_2)(x_0)
   $
 ]
 
@@ -505,11 +505,11 @@ $y = 0$ is always a solution of the Strum Liouville problem, which is called the
 
 Consider the initial value problem,
 $
-    dv(y, x) &= f(x, y) \
-  y(x_0) &= y_0
+  dv(y, x) & = f(x, y) \
+    y(x_0) & = y_0
 $
 Picard's iteration method is an iterative method to find the solution of the initial value problem. We start with an initial guess for the solution, say $y_0$, and then we define a sequence of functions ${y_n}_1^infinity$ by,
-$  y_{n + 1} (x) = y_0 + integral_(x_0)^x f(t, y_n (t)) dd(t) $
+$ y_{n + 1} (x) = y_0 + integral_(x_0)^x f(t, y_n (t)) dd(t) $
 Under certain conditions on the function $f$, the sequence ${y_n}_1^infinity$ converges to the unique solution of the initial value problem.
 
 == Lipschitz Continuity
@@ -524,43 +524,45 @@ Under certain conditions on the function $f$, the sequence ${y_n}_1^infinity$ co
 Lipschitz continuity is a stronger condition than continuity but weaker than differentiability.#footnote[Thus, Lipschitz continuity implies continuity but the converse is not true. Also, differentiability implies Lipschitz continuity but the converse is not true.]
 
 #theorem[
-    A function with a bounded derivative is Lipschitz continuous. However, the converse is not true.
+  A function with a bounded derivative is Lipschitz continuous. However, the converse is not true.
 ]
 
 #definition[Lipschitz Continuity With Respect to $y$][
-    A function $f(x, y)$ defined in a region $D subset.eq bb(R) times bb(R)$ is said to satisfy Lipschitz condition with respect to $y$ if there exists a constant $L$ such that,
-$    |f(x, y_1) - f(x, y_2)| <= L |y_1 - y_2| quad forall (x, y_1), (x, y_2) in D $
+  A function $f(x, y)$ defined in a region $D subset.eq bb(R) times bb(R)$ is said to satisfy Lipschitz condition with respect to $y$ if there exists a constant $L$ such that,
+  $
+    |f(x, y_1) - f(x, y_2)| <= L |y_1 - y_2| quad forall (x, y_1), (x, y_2) in D
+  $
 ]
 
 #theorem[
-    Suppose $S$ be a rectangle ${|x - x_0| <= a, |y - y_0| <= b}$ or a vertical strip ${|x - x_0| <= a}$ and $f$ be a real valued function defined on $S$ such that $pdv(f, y)$ exists, is continuous on $S$ and $|pdv(f, y)| < k med forall (x, y) in S$.
+  Suppose $S$ be a rectangle ${|x - x_0| <= a, |y - y_0| <= b}$ or a vertical strip ${|x - x_0| <= a}$ and $f$ be a real valued function defined on $S$ such that $pdv(f, y)$ exists, is continuous on $S$ and $|pdv(f, y)| < k med forall (x, y) in S$.
 
-    Then $f$ satisfies Lipschitz condition with respect to $y$ in $S$.
+  Then $f$ satisfies Lipschitz condition with respect to $y$ in $S$.
 ]
 #proof[
-    $
-        |f(x, y_1) - f(x, y_2)| & = |integral_(y_2)^(y_1) pdv(f, y) dd(y)| \
-                             & <= integral_(y_2)^(y_1) |pdv(f, y)| dd(y) \
-                             & < k |y_1 - y_2|
-    $
+  $
+    |f(x, y_1) - f(x, y_2)| & = |integral_(y_2)^(y_1) pdv(f, y) dd(y)| \
+                            & <= integral_(y_2)^(y_1) |pdv(f, y)| dd(y) \
+                            & < k |y_1 - y_2|
+  $
 ]
 
 == Picard's Existence and Uniqueness Theorem
 
 #theorem[Picard's Existence Theorem][
-    Given an initial value problem,
-    $
-        dv(y, x) & = f(x, y) \
+  Given an initial value problem,
+  $
+    dv(y, x) & = f(x, y) \
       y(x_0) & = y_0
-    $
-    where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$.#footnote[This means that $f$ is bounded. There is a famous real analysis result that states "Continuous functions on a closed and bounded interval are bounded". Thus, the continuity of $f$ on $R$ implies that $f$ is bounded on $R$.] Then there exists a solution in $R$.
+  $
+  where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$.#footnote[This means that $f$ is bounded. There is a famous real analysis result that states "Continuous functions on a closed and bounded interval are bounded". Thus, the continuity of $f$ on $R$ implies that $f$ is bounded on $R$.] Then there exists a solution in $R$.
 ]
 
 #theorem[Picard's Uniqueness Theorem][
-    Given an initial value problem,
-    $
-        dv(y, x) & = f(x, y) \
+  Given an initial value problem,
+  $
+    dv(y, x) & = f(x, y) \
       y(x_0) & = y_0
-    $
-    where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$ and satisfies Lipschitz condition with respect to $y$ in $R$. Then there exists a unique solution in $abs(x-x_0) < h$, where $h = min(a, b / M)$ is called the maximal interval of existence and $M$ is the bound on $f$ in $R$.
+  $
+  where $f$ is a continuous function on $R = {(x, y) | abs(x - x_0) <= a and abs(y-y_0) <= b}$ and satisfies Lipschitz condition with respect to $y$ in $R$. Then there exists a unique solution in $abs(x-x_0) < h$, where $h = min(a, b / M)$ is called the maximal interval of existence and $M$ is the bound on $f$ in $R$.
 ]
