@@ -611,11 +611,11 @@ Thus, the mixed strategy Nash equilibrium is $sigma_H^* = (2/3, 1/3)$ and $sigma
 = Auctions as Strategic Games
 
 #definition[Auction][
-    It is a mechanism with
-    - *Players:* bidders and sometimes an auctioneer
-    - *Strategies:* bidding rules
-    - *Payoffs:* $"utility" = "value of the item" - "payment"$ if won else $0$
-    - *Information Structure:* what each bidder knows
+  It is a mechanism with
+  - *Players:* bidders and sometimes an auctioneer
+  - *Strategies:* bidding rules
+  - *Payoffs:* $"utility" = "value of the item" - "payment"$ if won else $0$
+  - *Information Structure:* what each bidder knows
 ]
 
 In auctions, each bidder must keep in mind what they bid and what the other bidders might bid, as well as the rules of the auction. The strategic interaction between bidders can lead to different outcomes depending on the type of auction and the information available to the bidders.
@@ -639,15 +639,15 @@ A *two-sided auction* involves both buyers and sellers. E.g. a stock exchange wh
 == Valuation
 
 #definition[Valuation][
-    A bidder $i$ has a valuation $v_i >= 0$, which reflects how much the item is worth to them personally.
+  A bidder $i$ has a valuation $v_i >= 0$, which reflects how much the item is worth to them personally.
 ]
 
 The utility of a bidder is given by:
 $
-    u_i = cases(
-        v_i - p "if bidder wins",
-        0 "if bidder loses"
-    )
+  u_i = cases(
+    v_i - p "if bidder wins",
+    0 "if bidder loses"
+  )
 $
 
 === Private Value
@@ -663,7 +663,7 @@ In a *common value* auction, the item has the same value for all bidders, but th
 In an *interdependent value* auction, each bidder's valuation of the item depends on the valuations of other bidders. For example, in a spectrum auction for telecommunications, the value of a particular frequency band may depend on how many other bidders are interested in it and how much they are willing to pay, as this can affect the potential market share and profitability for the winning bidder.
 
 #exam[Valuation vs Bid][
-    It's important to note that a bidder's valuation of an item is not necessarily the same as the amount they choose to bid. The bid is a strategic decision that takes into account not only the bidder's own valuation but also their beliefs about other bidders' valuations and strategies, as well as the rules of the auction. For example, in a first-price sealed-bid auction, a bidder may choose to bid less than their true valuation to avoid the winner's curse#footnote[The winner's curse occurs when the highest bidder overpays for an item, leading to a loss], while in a second-price sealed-bid auction, it is a dominant strategy for bidders to bid their true valuation.#footnote[We'll look at this later]
+  It's important to note that a bidder's valuation of an item is not necessarily the same as the amount they choose to bid. The bid is a strategic decision that takes into account not only the bidder's own valuation but also their beliefs about other bidders' valuations and strategies, as well as the rules of the auction. For example, in a first-price sealed-bid auction, a bidder may choose to bid less than their true valuation to avoid the winner's curse#footnote[The winner's curse occurs when the highest bidder overpays for an item, leading to a loss], while in a second-price sealed-bid auction, it is a dominant strategy for bidders to bid their true valuation.#footnote[We'll look at this later]
 ]
 
 == Vickrey Auction as a Strategic Game
@@ -674,59 +674,59 @@ Let us try to figure out the best strategy for a bidder in a Vickrey auction.
 
 Let us focus on bidder $i$ and the opponents bid $b_(-i)$. Define the maximum bid among the opponents as
 $
-    m := max_(j != i) b_j
+  m := max_(j != i) b_j
 $
 If bidder $i$ bids $b_i$, their payoff can be expressed as#footnote[We assume that each bidder values the item at $v$]:
 $
-    u(b) = cases(
-        v - m "if" b_i > m,
-        0 "if" b_i <= m
-    )
+  u(b) = cases(
+    v - m "if" b_i > m,
+    0 "if" b_i <= m
+  )
 $
 #theorem[
-    We claim $b = v$ weakly dominates every other bid $b' != v$, i.e.,
-    $
-        forall m quad u(v) >= u(b')
-    $
-    with strict inequality for some $m$.
+  We claim $b = v$ weakly dominates every other bid $b' != v$, i.e.,
+  $
+    forall m quad u(v) >= u(b')
+  $
+  with strict inequality for some $m$.
 ]
 #proof[
-    We will consider three cases based on the relationship between $b'$, $v$, and $m$:
-    #columns(3)[
-        *Case 1:* $m < v$
-        For a truthful bid $b = v$, the payoff is,
-        $
-            u(v) = v - m > 0
-        $
-        For an alternative bid $b'$, we have two subcases:
-        - If $b' > m$, then $u(b') = v - m$, which is equal to $u(v)$.
-        - If $b' <= m$, then $u(b') = 0$, which is less than $u(v)$.
-        Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' <= m$.
+  We will consider three cases based on the relationship between $b'$, $v$, and $m$:
+  #columns(3)[
+    *Case 1:* $m < v$
+    For a truthful bid $b = v$, the payoff is,
+    $
+      u(v) = v - m > 0
+    $
+    For an alternative bid $b'$, we have two subcases:
+    - If $b' > m$, then $u(b') = v - m$, which is equal to $u(v)$.
+    - If $b' <= m$, then $u(b') = 0$, which is less than $u(v)$.
+    Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' <= m$.
 
-        #colbreak()
+    #colbreak()
 
-        *Case 2:* $m > v$
-        For a truthful bid $b = v$, the payoff is,
-        $
-            u(v) = 0
-        $
-        For an alternative bid $b'$, we have two subcases:
-        - If $b' > m$, then $u(b') = v - m < 0$, which is less than $u(v)$.
-        - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
-        Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' > m$.
+    *Case 2:* $m > v$
+    For a truthful bid $b = v$, the payoff is,
+    $
+      u(v) = 0
+    $
+    For an alternative bid $b'$, we have two subcases:
+    - If $b' > m$, then $u(b') = v - m < 0$, which is less than $u(v)$.
+    - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
+    Thus, in this case, $u(v) >= u(b')$ with strict inequality when $b' > m$.
 
-        #colbreak()
+    #colbreak()
 
-        *Case 3:* $m = v$
-        For a truthful bid $b = v$, the payoff is,
-        $
-            u(v) = 0
-        $
-        For an alternative bid $b'$, we have two subcases:
-        - If $b' > m$, then $u(b') = v - m = 0$, which is equal to $u(v)$.
-        - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
-        Thus, in this case, $u(v) >= u(b')$ with equality for all $b'$.
-    ]
+    *Case 3:* $m = v$
+    For a truthful bid $b = v$, the payoff is,
+    $
+      u(v) = 0
+    $
+    For an alternative bid $b'$, we have two subcases:
+    - If $b' > m$, then $u(b') = v - m = 0$, which is equal to $u(v)$.
+    - If $b' <= m$, then $u(b') = 0$, which is equal to $u(v)$.
+    Thus, in this case, $u(v) >= u(b')$ with equality for all $b'$.
+  ]
 ]
 
 = Linear and Network Games
@@ -734,17 +734,17 @@ $
 == Network Games
 
 #definition[Network Game][
-    It is a game where players are located on the nodes of a network and their payoffs depend on the actions of their neighbors in the network. The strategies of each player can be influenced by the structure of the network and the actions of their neighbors.
+  It is a game where players are located on the nodes of a network and their payoffs depend on the actions of their neighbors in the network. The strategies of each player can be influenced by the structure of the network and the actions of their neighbors.
 
-    A standard linear network games has the payoff function for player $i$ as:
-    $
-        u_i = a_i x_i - 1/2 x_i^2 + beta sum_(j in N(i)) g_(i j) x_i x_j
-    $
-    where $x_i$ is the strategy of player $i$, $a_i$ is a parameter that captures the intrinsic value of the strategy for player $i$, $beta$ is a parameter that captures the strength of the interaction between players, and $g_(i j)$ is an element of the adjacency matrix of the network, which indicates whether players $i$ and $j$ are neighbors.
+  A standard linear network games has the payoff function for player $i$ as:
+  $
+    u_i = a_i x_i - 1/2 x_i^2 + beta sum_(j in N(i)) g_(i j) x_i x_j
+  $
+  where $x_i$ is the strategy of player $i$, $a_i$ is a parameter that captures the intrinsic value of the strategy for player $i$, $beta$ is a parameter that captures the strength of the interaction between players, and $g_(i j)$ is an element of the adjacency matrix of the network, which indicates whether players $i$ and $j$ are neighbors.
 ]
 
 #exam[Network Games][
-    We only have *Network Congestion Games* and only *Braess' Paradox* is talked about in the course, so I will just talk about that.
+  We only have *Network Congestion Games* and only *Braess' Paradox* is talked about in the course, so I will just talk about that.
 ]
 
 === Braess' Paradox
@@ -753,7 +753,7 @@ Braess' Paradox is a phenomenon in network games where adding an extra link to a
 
 Say we have the following network with $4000$ drivers:
 #figure(
-    image("imgs/Img1.jpg", width: 80%)
+  image("imgs/Img1.jpg", width: 80%),
 )
 Here, the Nash equilibrium is for $2000$ drivers to take the upper route and $2000$ drivers to take the lower route, resulting in a travel time of $45 + 2000/100 = 65$ minutes for each driver.#footnote[Confirm this by assuming one driver deviates and takes the other route, they will have a travel time of $45 + 2001/100 = 65.01$ minutes, which is worse than sticking to the original route]
 
@@ -766,7 +766,7 @@ This has had real-world implications, as it has been observed in traffic network
 == Linear Market Models
 
 #definition[Linear Market Model][
-    It is a model of a market where the demand and supply functions are linear. The demand function can be expressed as $D(p) = a - b p$ and the supply function can be expressed as $S(p) = c + d p$, where $a$, $b$, $c$, and $d$ are positive constants, and $p$ is the price of the good.
+  It is a model of a market where the demand and supply functions are linear. The demand function can be expressed as $D(p) = a - b p$ and the supply function can be expressed as $S(p) = c + d p$, where $a$, $b$, $c$, and $d$ are positive constants, and $p$ is the price of the good.
 ]
 
 A classical example is the *Cournot duopoly* we discussed earlier, where two firms choose quantities to produce and the price is determined by a linear demand function. Another example is the *Bertrand duopoly*, where two firms choose prices instead of quantities, and the demand is also linear.
@@ -794,7 +794,7 @@ Information structures specify what each player knows about the game, including 
 == Information Sets
 
 #definition[Information Set][
-    An information set for a player is a collection of decision nodes in the game tree such that the player cannot distinguish between them based on the information available to them at that point in the game. In other words, when a player is at an information set, they do not know which specific node they are at within that set, but they know that they are at one of those nodes.
+  An information set for a player is a collection of decision nodes in the game tree such that the player cannot distinguish between them based on the information available to them at that point in the game. In other words, when a player is at an information set, they do not know which specific node they are at within that set, but they know that they are at one of those nodes.
 ]
 If two nodes are in the same information set, the player must choose the *same action* at both. This is because the player cannot distinguish between the nodes in the information set, so they must have a consistent strategy that applies to all nodes in that set.
 
@@ -811,21 +811,21 @@ A game has imperfect information if there exists at least one information set th
 An *extensive form game* is a way to model a strategic interaction where the _timing of moves_, _order of play_, and _information available to players at each step_ are explicitally represented.
 
 #definition[Exetnsive Form Representation][
-    An extensive-form game consists of:
-    - *Players:* a finite set of players $N$.
-    - *Game Tree*
-        - *Nodes:* Decision points
-        - *Edges:* Actions
-        - *Root:* Starting point
-        - *Terminal nodes:* Outcomes
-    - *Player Function:* Assigns each decision node to a player (who moves there)
-    - *Action Sets:* At each node, the available actions
-    - *Information Sets:* For each player, a partition of their decision nodes into information sets
-    - *Payoff Function:* Assigns a payoff to each player for each terminal node
+  An extensive-form game consists of:
+  - *Players:* a finite set of players $N$.
+  - *Game Tree*
+    - *Nodes:* Decision points
+    - *Edges:* Actions
+    - *Root:* Starting point
+    - *Terminal nodes:* Outcomes
+  - *Player Function:* Assigns each decision node to a player (who moves there)
+  - *Action Sets:* At each node, the available actions
+  - *Information Sets:* For each player, a partition of their decision nodes into information sets
+  - *Payoff Function:* Assigns a payoff to each player for each terminal node
 ]
 
 #figure(
-    image("imgs/Img2.jpg", width: 80%)
+  image("imgs/Img2.jpg", width: 80%),
 )
 
 == Subgame Perfect Equilibrium
@@ -833,18 +833,18 @@ An *extensive form game* is a way to model a strategic interaction where the _ti
 It is a refinement of Nash equilibrium for extensive-form games, where the strategy profile constitutes a Nash equilibrium in every subgame of the original game. This concept eliminates non-credible threats and ensures that players' strategies are optimal at every point in the game.
 
 #definition[Subgame][
-    A subgame is a part of the game that can be considered a game in itself, starting from a single decision node and including all its descendants. Formally, a subgame must satisfy the following conditions:
-    - It must start at a single decision node (the root of the subgame).
-    - It must include all the descendants of that node.
-    - It must not cut across any information sets; that is, if a node is included in the subgame, then all nodes in the same information set must also be included.
+  A subgame is a part of the game that can be considered a game in itself, starting from a single decision node and including all its descendants. Formally, a subgame must satisfy the following conditions:
+  - It must start at a single decision node (the root of the subgame).
+  - It must include all the descendants of that node.
+  - It must not cut across any information sets; that is, if a node is included in the subgame, then all nodes in the same information set must also be included.
 ]
 
 #exam[Why Nash is not sufficient for extensive-form games?][
-    In dynamic games, a Nash equilibrium can contain *non-credible threats*, like actions that hurt both but obviously won't be taken by a rational player. Nash equilibirum may still accept this because it only check deviations _globally_ not at every decision point.
+  In dynamic games, a Nash equilibrium can contain *non-credible threats*, like actions that hurt both but obviously won't be taken by a rational player. Nash equilibirum may still accept this because it only check deviations _globally_ not at every decision point.
 ]
 
 #exam[Finding Subgame Perfect Equilibrium][
-    To find the subgame perfect equilibrium, we can use *backward induction*. We start from the terminal nodes of the game tree and determine the optimal actions for the players at each decision node, working our way back to the root of the tree. This process ensures that we are considering the optimal strategies for every subgame, leading to a strategy profile that is a Nash equilibrium in every subgame.
+  To find the subgame perfect equilibrium, we can use *backward induction*. We start from the terminal nodes of the game tree and determine the optimal actions for the players at each decision node, working our way back to the root of the tree. This process ensures that we are considering the optimal strategies for every subgame, leading to a strategy profile that is a Nash equilibrium in every subgame.
 ]
 
 Subgame Perfect Equilibrium requires that at every point in the game, players' strategies must be optimal given what follows, thus even *off-equilibrium paths* must be rational.
@@ -854,14 +854,14 @@ Subgame Perfect Equilibrium requires that at every point in the game, players' s
 Consider two players *Proposer* and *Responder*. A fixed amount $M$ has to be divided.
 - Proposer offers a split of $M$ (say $x$ for Proposer and $M-x$ for Responder)
 - Responder can either accept or reject the offer
-    - If Responder accepts, the split is implemented
-    - If Responder rejects, both players get nothing
+  - If Responder accepts, the split is implemented
+  - If Responder rejects, both players get nothing
 
 This is a *perfect-information extensive-form game*
 
 We solve this using _backward induction_. Clearly, if $M - x > 0$, accepting the offer is better. Thus, anticipating it, the proposer solves,
 $
-    max_x x "subject to" M - x > 0
+  max_x x "subject to" M - x > 0
 $
 Thus, the proposer will offer the smallest positive amount $x = M - epsilon$ and the responder will accept it. This is the subgame perfect equilibrium of the ultimatum game.
 
@@ -874,27 +874,108 @@ In real-world experiments with the ultimatum game, it has been observed that pro
 This is a *sequential oligopoly* model where one firm (the leader) chooses its output level first, and the other firm (the follower) observes the leader's choice and then decides its own output level. The firms compete in quantities, and the market price is determined by a linear demand function, $P = a - b (q_L + q_F)$.
 
 #exam[Stakelberg vs Cournot][
-    In the Cournot duopoly, both firms choose their output levels simultaneously, leading to a Nash equilibrium where both firms produce the same quantity. In contrast, in the Stakelberg model, the leader firm has a strategic advantage by choosing its output level first, which allows it to influence the follower's decision. As a result, the leader typically produces a higher quantity than the follower and earns a higher profit compared to the Cournot equilibrium.
+  In the Cournot duopoly, both firms choose their output levels simultaneously, leading to a Nash equilibrium where both firms produce the same quantity. In contrast, in the Stakelberg model, the leader firm has a strategic advantage by choosing its output level first, which allows it to influence the follower's decision. As a result, the leader typically produces a higher quantity than the follower and earns a higher profit compared to the Cournot equilibrium.
 ]
 
 The follower observes $q_L$ and maximises,
 $
-    pi_L &= (P - c) q_F = [a - b (q_L + q_F) - c] q_F \
-    => dv(pi_L, q_F) &= a - c - b q_L - 2 b q_F
+              pi_L & = (P - c) q_F = [a - b (q_L + q_F) - c] q_F \
+  => dv(pi_L, q_F) & = a - c - b q_L - 2 b q_F
 $
 Setting this to zero gives the follower's best response function:
-$    q_F = "BR"_F (q_L) = (a - c - b q_L) / (2 b) $
+$ q_F = "BR"_F (q_L) = (a - c - b q_L) / (2 b) $
 This is the reaction of the follower to the leader's output choice. The leader anticipates this reaction and chooses $q_L$ to maximize its own profit:
 $
-    q = q_L + q_F = q_L + (a - c - b q_L) / (2 b) = (a - c + b q_L) / (2 b)
+  q = q_L + q_F = q_L + (a - c - b q_L) / (2 b) = (a - c + b q_L) / (2 b)
 $
 Thus, the price becomes,
-$    P = a - b q = a - b dot (a - c + b q_L) / (2 b) = (a + c - b q_L) / 2 $
+$ P = a - b q = a - b dot (a - c + b q_L) / (2 b) = (a + c - b q_L) / 2 $
 The leader's profit is then,
-$    pi_L = (P - c) q_L = [(a + c - b q_L) / 2 - c] q_L = [(a - c - b q_L) / 2] q_L $
+$
+  pi_L = (P - c) q_L = [(a + c - b q_L) / 2 - c] q_L = [(a - c - b q_L) / 2] q_L
+$
 Maximizing this with respect to $q_L$ gives the leader's optimal output level:
-$    dv(pi_L, q_L) = (a - c - 2 b q_L) / 2 = 0 => q_L = (a - c) / (2 b) $
+$ dv(pi_L, q_L) = (a - c - 2 b q_L) / 2 = 0 => q_L = (a - c) / (2 b) $
 Substituting this back into the follower's best response function gives the follower's output level:
-$    q_F = (a - c - b q_L) / (2 b) = (a - c - b dot (a - c) / (2 b)) / (2 b) = (a - c) / (4 b) $
+$
+  q_F = (a - c - b q_L) / (2 b) = (a - c - b dot (a - c) / (2 b)) / (2 b) = (a - c) / (4 b)
+$
 Thus, the Stakelberg equilibrium is:
-$    (q_L^*, q_F^*) = ((a - c) / (2 b), (a - c) / (4 b)) $
+$ (q_L^*, q_F^*) = ((a - c) / (2 b), (a - c) / (4 b)) $
+
+= Games with Imperfect Information
+
+== Bayesian Games
+
+It is a strategic game where players have incomplete information about the other players, such as their payoffs, strategies, or types. In a Bayesian game, players have beliefs about the unknown information, and they make decisions based on these beliefs.
+
+#definition[Bayesian Game][
+  A Bayesian Game is defined by, $(N, {A_i}, {T_i}, {p_i}, {u_i})$, where:
+  - $N$ is the set of players
+  - $A_i$ is the set of actions available to player $i$
+  - $T_i$ is the set of types for player $i$
+  - $p_i$ is the belief function for player $i$, which assigns a probability distribution over the types of other players given their own type
+  - $u_i$ is the payoff function for player $i$, which depends on the actions of all players and the types of all players
+]
+
+Now, a strategy is _no longer just an action_, it is a function, $s_i: T_i -> A_i$.#footnote[For each possible type I might be, what action should I take?]
+
+=== Battle of the Sexes Revisited Again
+
+Let us consider a Bayesian version of the Battle of the Sexes game.
+Consider, $N = {H, W}$ and $A_H = A_W = {O, F}$. Now, we'll introduce incomplete information about the _Wife only_, $T_H = {overline(t_H)}$ and $T_W = {I, U}$ meaning that the wife can be either _Interested_ or _Uninterested_ in going to the football game.
+Say the Husband believes that the Wife is _Interested_ with probability $p$ and _Uninterested_ with probability $1 - p$. The payoffs are as follows:
+#columns(2)[
+  #figure(
+    table(
+      align: center,
+      columns: 4,
+      table.cell(stroke: none, []), table.cell(colspan: 3, $W$),
+      table.cell(rowspan: 3, align: center + horizon, [$H$]),
+      [],
+      [Opera],
+      [Football],
+      [Opera], [$(2, 1)$], [$(0, 0)$],
+      [Football], [$(0, 0)$], [$(1, 2)$],
+    ),
+    caption: [Wife is Interested $t_w = I$],
+  )
+  #colbreak()
+
+  #figure(
+    table(
+      align: center,
+      columns: 4,
+      table.cell(stroke: none, []), table.cell(colspan: 3, $W$),
+      table.cell(rowspan: 3, align: center + horizon, [$H$]),
+      [],
+      [Opera],
+      [Football],
+      [Opera], [$(2, 0)$], [$(0, 2)$],
+      [Football], [$(0, 1)$], [$(1, 0)$],
+    ),
+    caption: [Wife is Uninterested $t_w = U$],
+  )
+]
+
+Let us make the expected payoff matrix for the Husband by taking the weighted average of the payoffs based on his beliefs about the Wife's type:
+#figure(
+  table(
+    align: center,
+    columns: 3,
+    [$(s_w (I), s_w (U)$], [H: O], [H: F],
+    [(O, O)], [$2$], [$0$],
+    [(O, F)], [$2p$], [$1-p$],
+    [(F, O)], [$2(1-p)$], [$p$],
+    [(F, F)], [$0$], [$p$],
+  ),
+  caption: [Expected Payoff Matrix for the Husband],
+)
+
+Now, let us look at the Wife#footnote[Not in that way, or maybeee],
+- If the Wife is Interested ($t_w = I$), her best response is to choose Football (F) regardless of the Husband's choice, since it gives her a higher payoff (2 vs 1).
+- If the Wife is Uninterested ($t_w = U$), her best response is to choose Football (F) if the husband chooses Opera (O) and to choose Opera (O) if the husband chooses Football (F), since it gives her a higher payoff in both cases.
+
+Now, we check every triple of strategies for the Husband and the Wife's types to see if they form a Bayesian Nash equilibrium and we see that there are two Bayesian Nash equilibria:
+- $s_H (overline(t_H)) = O$, $s_W (I) = O$, $s_W (U) = F$ if $p >= 1/3$
+- $s_H (overline(t_H)) = F$, $s_W (I) = F$, $s_W (U) = O$ if $p >= 2/3$
