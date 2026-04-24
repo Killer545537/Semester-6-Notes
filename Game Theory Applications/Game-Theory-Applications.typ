@@ -848,3 +848,53 @@ It is a refinement of Nash equilibrium for extensive-form games, where the strat
 ]
 
 Subgame Perfect Equilibrium requires that at every point in the game, players' strategies must be optimal given what follows, thus even *off-equilibrium paths* must be rational.
+
+== Ultimatum Game
+
+Consider two players *Proposer* and *Responder*. A fixed amount $M$ has to be divided.
+- Proposer offers a split of $M$ (say $x$ for Proposer and $M-x$ for Responder)
+- Responder can either accept or reject the offer
+    - If Responder accepts, the split is implemented
+    - If Responder rejects, both players get nothing
+
+This is a *perfect-information extensive-form game*
+
+We solve this using _backward induction_. Clearly, if $M - x > 0$, accepting the offer is better. Thus, anticipating it, the proposer solves,
+$
+    max_x x "subject to" M - x > 0
+$
+Thus, the proposer will offer the smallest positive amount $x = M - epsilon$ and the responder will accept it. This is the subgame perfect equilibrium of the ultimatum game.
+
+=== Real World Implications
+
+In real-world experiments with the ultimatum game, it has been observed that proposers often offer a more equitable split (e.g., $M/2$) and responders frequently reject offers they perceive as unfair (e.g., offers less than $M/3$), even though accepting any positive amount would be the rational choice in the subgame perfect equilibrium. This behavior can be attributed to factors such as fairness concerns, social norms, and emotional responses, which are not captured in the traditional game-theoretic model.
+
+== Stakelberg Leadership Model
+
+This is a *sequential oligopoly* model where one firm (the leader) chooses its output level first, and the other firm (the follower) observes the leader's choice and then decides its own output level. The firms compete in quantities, and the market price is determined by a linear demand function, $P = a - b (q_L + q_F)$.
+
+#exam[Stakelberg vs Cournot][
+    In the Cournot duopoly, both firms choose their output levels simultaneously, leading to a Nash equilibrium where both firms produce the same quantity. In contrast, in the Stakelberg model, the leader firm has a strategic advantage by choosing its output level first, which allows it to influence the follower's decision. As a result, the leader typically produces a higher quantity than the follower and earns a higher profit compared to the Cournot equilibrium.
+]
+
+The follower observes $q_L$ and maximises,
+$
+    pi_L &= (P - c) q_F = [a - b (q_L + q_F) - c] q_F \
+    => dv(pi_L, q_F) &= a - c - b q_L - 2 b q_F
+$
+Setting this to zero gives the follower's best response function:
+$    q_F = "BR"_F (q_L) = (a - c - b q_L) / (2 b) $
+This is the reaction of the follower to the leader's output choice. The leader anticipates this reaction and chooses $q_L$ to maximize its own profit:
+$
+    q = q_L + q_F = q_L + (a - c - b q_L) / (2 b) = (a - c + b q_L) / (2 b)
+$
+Thus, the price becomes,
+$    P = a - b q = a - b dot (a - c + b q_L) / (2 b) = (a + c - b q_L) / 2 $
+The leader's profit is then,
+$    pi_L = (P - c) q_L = [(a + c - b q_L) / 2 - c] q_L = [(a - c - b q_L) / 2] q_L $
+Maximizing this with respect to $q_L$ gives the leader's optimal output level:
+$    dv(pi_L, q_L) = (a - c - 2 b q_L) / 2 = 0 => q_L = (a - c) / (2 b) $
+Substituting this back into the follower's best response function gives the follower's output level:
+$    q_F = (a - c - b q_L) / (2 b) = (a - c - b dot (a - c) / (2 b)) / (2 b) = (a - c) / (4 b) $
+Thus, the Stakelberg equilibrium is:
+$    (q_L^*, q_F^*) = ((a - c) / (2 b), (a - c) / (4 b)) $
